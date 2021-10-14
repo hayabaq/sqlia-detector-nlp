@@ -7,4 +7,4 @@ The main function of this code is to detect sql injection attack queries
 
 Worked with 
 
-[Mariam Mohammed] (github.com/MariamNasr-github) , [Leen Bachar] (github.com/lbmaxdl), and Renad AlAhmadi.
+[Mariam Mohammed](github.com/MariamNasr-github) , [Leen Bachar](github.com/lbmaxdl), and Renad AlAhmadi.
